@@ -1,0 +1,141 @@
+html {
+    font-family: FontAwesome;
+    font-size: 1em;
+}
+
+a {
+    text-decoration: none;
+}
+
+ol,
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+form article h1,
+form article p,
+form article :not(.options):not(.tags) > li {
+    border-radius: .25em;
+    background: rgba(65, 143, 159, .1);
+    padding: .3em;
+    box-sizing: border-box;
+}
+
+form article section {
+    border-radius: .5em;
+    background: rgba(65, 143, 159, .1);
+    padding: .3em;
+    box-sizing: border-box;
+}
+
+form article dl,
+form article ol:not(.options):not(.tags),
+form article ul {
+    border-radius: .25em;
+    background: rgba(65, 143, 159, .1);
+    border: .063em solid rgba(65, 143, 159, .05);
+}
+
+form article .options li,
+form article .tags li {
+    display: inline;
+}
+
+form article .options br,
+form article .tags br,
+form article .tags section br:last-child {
+    display: none;
+}
+
+form article header img {
+    width: 3em;
+    height: 3em;
+    display: inline-block;
+    position: absolute;
+    left: 1em;
+    margin-top: 1.3em;
+}
+
+form article p {
+    min-height: 1.9em;
+    width: 100%;
+}
+
+form article header p:first-of-type {
+    min-height: 3em;
+    float: left;
+}
+
+form article header p:first-of-type + p {
+    clear: both;
+}
+
+form article header p:first-of-type::before {
+    content: '';
+    width: 3em;
+    height: 3em;
+    margin-right: .5em;
+    display: inline-block;
+    float: left;
+}
+
+form article section,
+form article .tags {
+    clear: both;
+}
+
+form > fieldset:last-of-type {
+    clear: both;
+    border: none;
+    padding: 0;
+}
+
+button,
+input[type=button],
+input[type=submit],
+input[type=reset] {
+    padding: .25em .25em;
+    margin: .25em .25em;
+    display: inline-block;
+    color: rgba(65, 143, 159, .8);
+    background: rgba(65, 143, 159, .1);
+    background: linear-gradient(top, rgba(65, 143, 159, .1) 0, rgba(65, 143, 159, .05) 100%);
+    background: -moz-linear-gradient(top, rgba(65, 143, 159, .1) 0, rgba(65, 143, 159, .05) 100%);
+    background: -webkit-linear-gradient(top, rgba(65, 143, 159, .1) 0, rgba(65, 143, 159, .05) 100%);
+    background: -o-linear-gradient(top, rgba(65, 143, 159, .1) 0, rgba(65, 143, 159, .05) 100%);
+    border: .25em solid rgba(65, 143, 159, .1);
+    border-radius: .25em;
+    -moz-border-radius: .25em;
+    -webkit-border-radius: .25em;
+    -o-border-radius: .25em;
+    font-weight: bold;
+}
+
+button:hover,
+button.active,
+input[type=button]:hover,
+input[type=button].active,
+input[type=submit]:hover,
+input[type=submit].active,
+input[type=reset]:hover,
+input[type=reset].active {
+    color: rgba(65, 143, 159, .8);
+    background: rgba(65, 143, 159, .5);
+    background: linear-gradient(top, rgba(65, 143, 159, .5) 0, rgba(65, 143, 159, .05) 100%);
+    background: -moz-linear-gradient(top, rgba(65, 143, 159, .5) 0, rgba(65, 143, 159, .05) 100%);
+    background: -webkit-linear-gradient(top, rgba(65, 143, 159, .5) 0, rgba(65, 143, 159, .05) 100%);
+    background: -o-linear-gradient(top, rgba(65, 143, 159, .5) 0, rgba(65, 143, 159, .05) 100%);
+    border: .25em solid rgba(65, 143, 159, .5);
+}
+
+button:active,
+button:disabled,
+input[type=button]:active,
+input[type=button]:disabled,
+input[type=submit]:active,
+input[type=submit]:disabled,
+input[type=reset]:active,
+input[type=reset]:disabled {
+    color: rgba(65, 143, 159, .3);
+}

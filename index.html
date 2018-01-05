@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <title>Éditeur d'article</title>
+        <link href="./assets/css/fontawesome-v5.0.0-all.min.css" rel="stylesheet" />
+        <link href="./assets/css/style.css" rel="stylesheet" />
+    </head>
+    <body>
+        <main>
+            <h1>Éditeur d'article</h1>
+            <form>
+                <input name="article" type="hidden" />
+                <!--
+                <ol>
+                    <li class="undo"><button class="fas" type="button"></button></li>
+                    <li class="redo"><button class="fas" type="button"></button></li>
+                    <li class="underline"><button class="fas" type="button"></button></li>
+                    <li class="strikeThrough"><button class="fas" type="button"></button></li>
+                    <li class="italic"><button class="fas" type="button"></button></li>
+                    <li class="bold"><button class="fas" type="button"></button></li>
+                    <li class="createLink"><button class="fas" type="button"></button></li>
+                    <li class="heading"><button class="fas" type="button"></button></li>
+                    <li class="insertParagraph"><button class="fas" type="button"></button></li>
+                    <li class="insertOrderedList"><button class="fas" type="button"></button></li>
+                    <li class="insertUnorderedList"><button class="fas" type="button"></button></li>
+                    <li class="insertDefinitionList"><button class="fas" type="button"></button></li>
+                </ol>
+                -->
+                <article>
+                    <header>
+                        <ol class="options">
+                            <li><button class="bold fas" type="button"></button></li>
+                            <li><button class="italic fas" type="button"></button></li>
+                            <li><button class="underline fas" type="button"></button></li>
+                            <li><button class="strike fas" type="button"></button></li>
+                        </ol>
+                        <h1 contenteditable="true">Titre de l'article</h1>
+                        <img src="./assets/img/default-picture.png" />
+                        <p contenteditable="true">Premier paragraphe de l'introduction donnant à l'utilisateur, l'envie de lire votre article.<br />Pressez <b>Enter</b>, pour en créer un nouveau.<br />Pressez <b>Shift</b> + <b>Enter</b>, pour faire un retour à la ligne.</p>
+                    </header>
+                    <ol class="tags">
+                        <li><button class="section" data-href="./templates/article/section.html" type="button">Ajouter une section</button></li>
+                        <li><button class="footer" data-href="./templates/article/footer.html" type="button">Ajouter un quiz</button></li>
+                    </ol>
+                </article>
+                <fieldset>
+                    <ol>
+                        <li><button>Enregistrer</button></li>
+                    </ol>
+                </fieldset>
+            </form>
+        </main>
+        <pre id="result"></pre>
+        <script src="./assets/js/dist/app.min.js"></script>
+    </body>
+</html>

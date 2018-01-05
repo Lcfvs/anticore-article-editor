@@ -1,0 +1,55 @@
+{
+  "js": {
+    "bundles": {
+      "app": [
+        {
+          "src": "js-polyfills/url.js",
+          "alias": "URL"
+        },
+        {
+          "src": "es6-promise/dist/es6-promise.auto.js",
+          "alias": "Promise"
+        },
+        {
+          "src": "whatwg-fetch",
+          "alias": "fetch"
+        },
+        {
+          "src": "anticore"
+        },
+        {
+          "src": "./assets/js/dev/index.js"
+        }
+      ]
+    },
+    "config": {
+      "module": {
+        "loaders": [
+          {
+            "loader": "babel-loader",
+            "options": {
+              "presets": [
+                "env"
+              ]
+            }
+          }
+        ]
+      },
+      "output": {
+        "path": "./assets/js/dist"
+      },
+      "plugins": [
+        {
+          "name": "babel-minify-webpack-plugin",
+          "params": [{}, {
+            "comments": false
+          }]
+        },
+        {
+          "name": "webpack/lib/BannerPlugin"
+        }
+      ],
+      "target": "web"
+    }
+  }
+}

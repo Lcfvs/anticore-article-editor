@@ -1,0 +1,28 @@
+{
+  "name": "contentEditable",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./public/js/dev/main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "lcf.vs <michael.rouges@gmail.com>",
+  "license": "UNLICENSED",
+  "devDependencies": {
+    "anticore": "^1.8.8",
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-minify-webpack-plugin": "^0.2.0",
+    "babel-plugin-add-module-exports": "^0.2.1",
+    "babel-preset-env": "^1.6.0",
+    "css-loader": "^0.28.7",
+    "es6-promise": "^4.1.1",
+    "extract-loader": "^1.0.1",
+    "file-loader": "^1.1.6",
+    "flat-webpack": "^1.0.6",
+    "js-polyfills": "^0.1.41",
+    "webpack": "^3.6.0",
+    "webpack-css-concat-plugin": "0.0.0",
+    "whatwg-fetch": "^2.0.3"
+  }
+}

@@ -10,11 +10,14 @@ export function clean(selector, node, exclude) {
   forEachDescendant(nodes, removeTrailing, exclude);
 
   if (isEmpty(node)) {
+    if (!exclude) {
+      selectPrevious(node, tree);
+    }
 
     return true;
   }
 
-  if (!exclude) {
+  if (!exclude) {console.log(node)
     selectPrevious(node, tree);
   }
 

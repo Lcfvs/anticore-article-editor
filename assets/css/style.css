@@ -1,5 +1,33 @@
+@font-face {
+    font-family: Vollkorn;
+    src: url("../fonts/Vollkorn/Vollkorn-Regular.ttf");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: Vollkorn;
+    src: url("../fonts/Vollkorn/Vollkorn-Bold.ttf");
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: Vollkorn;
+    src: url("../fonts/Vollkorn/Vollkorn-Italic.ttf");
+    font-weight: normal;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: Vollkorn;
+    src: url("../fonts/Vollkorn/Vollkorn-BoldItalic.ttf");
+    font-weight: bold;
+    font-style: italic;
+}
+
 html {
-    font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+    font-family: Vollkorn, "Lucida Sans Unicode", "Lucida Grande", sans-serif;
     font-size: 1em;
 }
 
@@ -15,18 +43,16 @@ ul {
 
 form article h1,
 form article p,
-form article :not(.options):not(.tags) > li {
+form article :not(.options):not(.tags) > li,
+form article section {
     border-radius: .25em;
     background: rgba(65, 143, 159, .1);
-    padding: .3em;
+    padding: .4em;
     box-sizing: border-box;
 }
 
 form article section {
     border-radius: .5em;
-    background: rgba(65, 143, 159, .1);
-    padding: .3em;
-    box-sizing: border-box;
 }
 
 form article dl,

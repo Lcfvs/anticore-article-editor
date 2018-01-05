@@ -8,7 +8,7 @@ export function selectPrevious(node, tree) {
   while (key) {
     node = tree[key];
 
-    if (node.parentNode) {
+    if (node.parentNode) {console.log(node)
       return selectEnd(node);
     }
 

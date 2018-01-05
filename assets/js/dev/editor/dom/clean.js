@@ -14,7 +14,9 @@ export function clean(selector, node, exclude) {
     return true;
   }
 
-  selectPrevious(node, tree);
+  if (!exclude) {
+    selectPrevious(node, tree);
+  }
 
   return false;
 }

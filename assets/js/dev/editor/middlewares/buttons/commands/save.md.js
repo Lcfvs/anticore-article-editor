@@ -15,9 +15,9 @@ function onClick(event) {
   forEach(all('.options', clone), remove);
   forEach(all('.tags', clone), remove);
 
-  form.elements.article.value = clone.innerHTML;
+  form.elements.article.value = clone.outerHTML;
   event.preventDefault();
-  console.log(clone.innerHTML);
+  console.log(form.elements.article.value);
 }
 
 on('form button:not([type])', function (element, next) {

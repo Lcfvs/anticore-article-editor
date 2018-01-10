@@ -1,2 +1,4 @@
 # anticore-article-editor
-An article editor, via anticore
+[DRAFT] An article editor, via [anticore](https://github.com/Lcfvs/anticore)
+
+[Demo](https://lcfvs.github.io/anticore-article-editor)

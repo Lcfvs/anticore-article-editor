@@ -1,11 +1,13 @@
-import {listen, on} from '../../../dom';
+import {on} from '../../../dom';
+import {listenClick} from '../../../dom/listeners';
+import {one} from '../../../dom/queries';
 
 function onClick(event) {
-  event.target.ownerDocument.execCommand('undo');
+  one.execCommand('undo');
 }
 
 on('form article .options button.undo', function (element, next) {
-  listen('click', element, onClick);
+  listenClick(element, onClick);
 
   next();
 });

@@ -1,12 +1,15 @@
-import {all, clean, getClosest, listen, on, one, remove} from '../../../dom';
 import {forEach} from '../../../utils';
+import {listenClick} from '../../../dom/listeners';
+import {closest, one} from '../../../dom/queries';
 
 function onClick(event) {
   let
-  form = getClosest('form', event.target),
+  form = closest('form', event.target),
   article = one('article', form),
   clone;
 
+  return alert('@todo : ' + __filename);
+/*
   clean('article', article);
   clone = article.cloneNode(true);
   forEach(all('.options', clone), remove);
@@ -18,7 +21,7 @@ function onClick(event) {
 }
 
 on('form button:not([type])', function (element, next) {
-  listen('click', element, onClick);
+  listenClick(element, onClick);
 
-  next();
-});
+  next();*/
+}

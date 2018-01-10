@@ -1,5 +1,5 @@
 import {
-  listenPKeys
+  listenP
 } from '../../core';
 
 import {
@@ -7,7 +7,7 @@ import {
 } from '../../dom';
 
 on('p[contenteditable=true]', function (element, next) {
-  listenPKeys(element);
+  listenP(element);
 
   next();
 });

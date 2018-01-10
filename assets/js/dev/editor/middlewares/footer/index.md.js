@@ -1,4 +1,6 @@
-import {on, one, append} from '../../dom';
+import {on} from '../../dom';
+import {one} from '../../dom/queries';
+import {append} from '../../dom/shapers';
 
 on('footer[data-append]', function(element, next) {
   let

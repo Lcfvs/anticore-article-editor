@@ -1,13 +1,8 @@
-import {
-  listenDdKeys
-} from '../../core';
-
-import {
-  on
-} from '../../dom';
+import {listenDd} from '../../core';
+import {on} from '../../dom';
 
 on('dd[contenteditable=true]', function (element, next) {
-  listenDdKeys(element);
+  listenDd(element);
 
   next();
 });

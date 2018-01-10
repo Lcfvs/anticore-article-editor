@@ -1,11 +1,13 @@
-import {listen, on} from '../../../dom';
+import {on} from '../../../dom';
+import {listenClick} from '../../../dom/listeners';
+import {one} from '../../../dom/selection';
 
 function onClick(event) {
-  event.target.ownerDocument.execCommand('redo');
+  one().execCommand('redo');
 }
 
 on('form article .options button.redo', function (element, next) {
-  listen('click', element, onClick);
+  listenClick(element, onClick);
 
   next();
 });

@@ -40,12 +40,6 @@
       },
       "plugins": [
         {
-          "name": "babel-minify-webpack-plugin",
-          "params": [{}, {
-            "comments": false
-          }]
-        },
-        {
           "name": "webpack/lib/BannerPlugin"
         }
       ],

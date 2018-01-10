@@ -1,11 +1,12 @@
-import {listen, on} from '../../../dom';
+import {on} from '../../../dom';
+import {listenClick} from '../../../dom/listeners';
 
 function onClick(event) {
 
 }
 
 on('form article .options button.delete', function (element, next) {
-  listen('click', element, onClick);
+  listenClick(element, onClick);
 
   next();
 });

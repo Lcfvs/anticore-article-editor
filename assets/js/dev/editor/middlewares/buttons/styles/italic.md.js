@@ -1,15 +1,18 @@
-import {getClosestOrMatches, getSelection, listen, on, one} from '../../../dom';
-import {HEADINGS as HEADINGS_SELECTOR} from '../../../selectors';
+import {on} from '../../../dom';
+import {listenClick} from '../../../dom/listeners';
+import {isHeadingNode} from '../../../dom/infos';
+import {one} from '../../../dom/queries';
+import {current} from '../../../dom/selection';
 
 function onClick(event) {
   let
-  selection = getSelection();
+  selection = current();
 
-  if (getClosestOrMatches(HEADINGS_SELECTOR, selection.anchorNode)) {
+  if (isHeadingNode(selection.anchorNode)) {
     return;
   }
 
-  if (getClosestOrMatches(HEADINGS_SELECTOR, selection.focusNode)) {
+  if (isHeadingNode(selection.focusNode)) {
     return;
   }
 
@@ -18,7 +21,7 @@ function onClick(event) {
 }
 
 on('form article .options button.italic', function (element, next) {
-  listen('click', element, onClick);
+  listenClick(element, onClick);
 
   next();
 });

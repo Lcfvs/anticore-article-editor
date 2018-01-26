@@ -3,7 +3,9 @@
     <head>
         <meta charset="UTF-8">
         <title>Éditeur d'article</title>
+        <link href="./assets/css/fa-solid.min.css" rel="stylesheet" />
         <link href="./assets/css/style.css" rel="stylesheet" />
+        <link href="./assets/css/dev.css" rel="stylesheet" />
     </head>
     <body>
         <main>
@@ -29,18 +31,20 @@
                 <article>
                     <header>
                         <ol class="options">
-                            <li><button class="bold" type="button"><b>B</b></button></li>
-                            <li><button class="italic" type="button"><i>I</i></button></li>
-                            <li><button class="underline" type="button"><u>U</u></button></li>
-                            <li><button class="strike" type="button"><s>S</s></button></li>
+                            <li><button class="bold" type="button"></button></li>
+                            <li><button class="italic" type="button"></button></li>
+                            <li><button class="underline" type="button"></button></li>
+                            <li><button class="strike" type="button"></button></li>
+                            <li><button class="anchor" data-href="./templates/article/anchor.html" type="button"></button></li>
                         </ol>
                         <h1 contenteditable="true">Titre de l'article</h1>
-                        <img src="./assets/img/default-picture.png" />
-                        <p contenteditable="true">Premier paragraphe de l'introduction donnant à l'utilisateur, l'envie de lire votre article.<br />Pressez <b>Enter</b>, pour en créer un nouveau.<br />Pressez <b>Shift</b> + <b>Enter</b>, pour faire un retour à la ligne.</p>
+                        <img />
+                        <p contenteditable="true">Paragraphe de l'introduction donnant à l'utilisateur, l'envie de lire votre article.<br />Pressez <b>Enter</b>, pour en créer un nouveau.<br />Pressez <b>Shift</b> + <b>Enter</b>, pour faire un retour à la ligne.</p>
                     </header>
                     <ol class="tags">
                         <li><button class="section" data-href="./templates/article/section.html" type="button">Ajouter une section</button></li>
                         <li><button class="footer" data-href="./templates/article/footer.html" type="button">Ajouter un quiz</button></li>
+                        <li><button class="test" type="button">Test</button></li>
                     </ol>
                 </article>
                 <fieldset>
@@ -50,7 +54,6 @@
                 </fieldset>
             </form>
         </main>
-        <pre id="result"></pre>
         <script src="./assets/js/dist/app.min.js"></script>
     </body>
 </html>

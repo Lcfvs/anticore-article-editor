@@ -1,34 +1,50 @@
 @font-face {
-    font-family: Vollkorn;
-    src: url("../fonts/Vollkorn/Vollkorn-Regular.ttf");
+    font-family: OpenSans;
+    src: url("../webfonts/OpenSans/OpenSans-Regular.ttf");
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
-    font-family: Vollkorn;
-    src: url("../fonts/Vollkorn/Vollkorn-Bold.ttf");
+    font-family: OpenSans;
+    src: url("../webfonts/OpenSans/OpenSans-SemiBold.ttf");
     font-weight: bold;
     font-style: normal;
 }
 
 @font-face {
-    font-family: Vollkorn;
-    src: url("../fonts/Vollkorn/Vollkorn-Italic.ttf");
+    font-family: OpenSans;
+    src: url("../webfonts/OpenSans/OpenSans-Italic.ttf");
     font-weight: normal;
     font-style: italic;
 }
 
 @font-face {
-    font-family: Vollkorn;
-    src: url("../fonts/Vollkorn/Vollkorn-BoldItalic.ttf");
+    font-family: OpenSans;
+    src: url("../webfonts/OpenSans/OpenSans-SemiBoldItalic.ttf");
     font-weight: bold;
     font-style: italic;
 }
 
 html {
-    font-family: Vollkorn, "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+    font-family: OpenSans, "Lucida Sans Unicode", "Lucida Grande", sans-serif;
     font-size: 1em;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+main {
+    width: 50em;
 }
 
 a {
@@ -43,19 +59,29 @@ ul {
 
 form article h1,
 form article p,
-form article :not(.options):not(.tags) > li,
-form article section {
+form article :not(.options):not(.tags) > li {
     border-radius: .25em;
     background: rgba(65, 143, 159, .1);
     padding: .4em;
     box-sizing: border-box;
 }
 
-form article section {
-    border-radius: .5em;
+form article h1 {
+    margin-bottom: 0;
 }
 
-form article dl,
+form article p {
+    margin-top: .5em;
+    margin-bottom: 0;
+}
+
+form article section,
+form article .tags {
+    border-radius: .25em;
+    position: relative;
+}
+
+form article details,
 form article ol:not(.options):not(.tags),
 form article ul {
     border-radius: .25em;
@@ -78,41 +104,34 @@ form article header img {
     width: 3em;
     height: 3em;
     display: inline-block;
-    position: absolute;
+    position: relative;
     left: 1em;
     margin-top: 1.3em;
+    float: left;
+    z-index: 2;
 }
 
 form article p {
-    min-height: 1.9em;
+    min-height: 2.25em;
     width: 100%;
 }
 
 form article header p:first-of-type {
-    min-height: 3em;
-    float: left;
+    min-height: 4.5em;
 }
 
-form article header p:first-of-type + p {
-    clear: both;
-}
-
-form article header p:first-of-type::before {
-    content: '';
-    width: 3em;
-    height: 3em;
-    margin-right: .5em;
+form article header img:not([src]) + p:first-of-type::before {
+    content: '';
+    margin-left: -0.6em;
+    margin-right: 0.12em;
     display: inline-block;
     float: left;
-}
-
-form article section,
-form article .tags {
-    clear: both;
+    z-index: 1;
+    font-family: "Font Awesome\ 5 Free";
+    font-size: 4em;
 }
 
 form > fieldset:last-of-type {
-    clear: both;
     border: none;
     padding: 0;
 }
@@ -121,7 +140,7 @@ button,
 input[type=button],
 input[type=submit],
 input[type=reset] {
-    padding: .25em .25em;
+    padding: .25em;
     margin: .25em .25em;
     display: inline-block;
     color: rgba(65, 143, 159, .8);
@@ -134,7 +153,6 @@ input[type=reset] {
     border-radius: .25em;
     -moz-border-radius: .25em;
     -webkit-border-radius: .25em;
-    -o-border-radius: .25em;
     font-weight: bold;
 }
 
@@ -164,4 +182,11 @@ input[type=submit]:disabled,
 input[type=reset]:active,
 input[type=reset]:disabled {
     color: rgba(65, 143, 159, .3);
+}
+
+.options button {
+    width: 2em;
+    padding: .25em 0;
+    color: rgba(65, 143, 159, .8);
+    font-family: "Font Awesome\ 5 Free";
 }

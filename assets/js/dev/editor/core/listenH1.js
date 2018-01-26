@@ -1,12 +1,21 @@
 import {listenBack, listenEnter, listenShiftEnter} from '../dom/listeners';
-import {closest, one} from '../dom/queries';
+import {closest, editables} from '../dom/queries';
 import {isEmpty} from '../dom/infos';
 import {remove} from '../dom/shapers';
+import {next} from '../dom/selection';
 
 export function listenH1(element) {
-  listenEnter(element, preventDefault, true);
+  listenEnter(element, onEnter, true);
   listenShiftEnter(element, preventDefault, true);
   listenBack(element, clean, true);
+}
+
+function onEnter(event) {
+  let
+  target = event.target;
+
+  preventDefault(event);
+  next(target, editables(target));
 }
 
 function preventDefault(event) {

@@ -1,14 +1,16 @@
-import {all} from '.';
+import {matches} from '../infos';
 
 export function closest(selector, node) {
   let
-  matches = all(selector, node.document || node.ownerDocument),
-  i;
+  current = node;
 
-  do {
-    i = matches.length;
-    while (--i >= 0 && matches.item(i) !== node) {}
-  } while ((i < 0) && (node = node.parentElement));
+  while (current.parentNode) {
+    current = current.parentNode;
 
-  return node;
+    if (matches(selector, current)) {
+      return current;
+    }
+  }
+
+  return null;
 }

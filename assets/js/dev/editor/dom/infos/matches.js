@@ -1,11 +1,17 @@
 import {all} from '../queries';
+import {indexOf} from '../../utils';
 
 export function matches(selector, node) {
   let
-  matches = all(selector, node.document || node.ownerDocument),
-  i = matches.length;
+  current = node;
 
-  while (--i >= 0 && matches.item(i) !== this) {}
+  while (current.parentNode) {
+    if (indexOf(all(selector, current.parentNode), node) > -1) {
+      return true;
+    }
 
-  return i > -1;
+    current = current.parentNode;
+  }
+
+  return false;
 }

@@ -1,3 +1,12 @@
-import anticore from 'anticore';
+import {slice} from './slice';
 
-export const forEach = anticore.utils.forEach;
+export function forEach(input, callback, thisArg) {
+  let
+  array = Array.isArray(input) ? input : slice(input),
+  key = 0,
+  length = array.length;
+
+  for (;key < length;key += 1) {
+    callback.call(thisArg, array[key], key, input);
+  }
+}

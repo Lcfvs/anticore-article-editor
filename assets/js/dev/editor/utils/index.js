@@ -4,5 +4,6 @@ export * from './filter';
 export * from './forEach';
 export * from './global';
 export * from './indexOf';
+export * from './isObject';
 export * from './reverse';
 export * from './slice';

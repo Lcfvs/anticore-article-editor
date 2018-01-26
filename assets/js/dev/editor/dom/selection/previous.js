@@ -1,5 +1,6 @@
 import {indexOf} from '../../utils/index';
 import {end} from './index';
+import {closest} from '../queries';
 
 export function previous(node, targets) {
   let
@@ -7,7 +8,7 @@ export function previous(node, targets) {
 
   while (node = targets[key -= 1]) {
     if (node.parentNode) {
-      return end(node);
+      return closest('[contenteditable=true]', end(node));
     }
   }
 }

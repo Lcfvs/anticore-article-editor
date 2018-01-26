@@ -1,10 +1,7 @@
-import {one} from '../queries';
+import {element} from './element';
 
 export function editable(nodeName) {
-  let
-  node = one().createElement(nodeName);
-
-  node.contentEditable = true;
-
-  return node;
+  return element(nodeName, {
+    contentEditable: true
+  });
 }

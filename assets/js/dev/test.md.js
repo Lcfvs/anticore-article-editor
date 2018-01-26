@@ -2,6 +2,7 @@ import {one} from './editor/dom/queries';
 import {on} from './editor/dom';
 import {listenClick} from './editor/dom/listeners';
 import test from './test.js';
+import {element} from './editor/dom/shapers';
 
 function onOpen() {
   test(print);
@@ -13,16 +14,24 @@ function onClose() {
 }
 
 function print(node) {
-  var div = one().createElement('div');
+  let
+  div = element('div'),
+  formatted = '',
+  pad = 0,
+  code;
+
   div.appendChild(node);
-  var code = div.innerHTML.replace(/^<div>(.*)<\/div>/, '$1');
-  var formatted = '';
-  var reg = /(>)(<)(\/*)/g;
-  code = code.replace(reg, '$1\r\n$2$3');
-  var pad = 0;
+
+  code = div.innerHTML
+    .replace(/^<div>(.*)<\/div>/, '$1')
+    .replace(/(>)(<)(\/*)/g, '$1\r\n$2$3');
 
   code.split('\r\n').forEach(function(node) {
-    var indent = 0;
+    let
+    indent = 0,
+    padding = '',
+    i = 0;
+
     if (node.match( /.+<\/\w[^>]*>$/ )) {
       indent = 0;
     } else if (node.match( /^<\/\w/ )) {
@@ -35,8 +44,7 @@ function print(node) {
       indent = 0;
     }
 
-    var padding = '';
-    for (var i = 0; i < pad; i++) {
+    for (; i < pad; i++) {
       padding += '  ';
     }
 

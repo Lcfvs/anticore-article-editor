@@ -28,5 +28,7 @@ export function update(element, config) {
         element.setAttribute(name, value);
       }
     });
-}
+  }
+
+  return element;
 }

@@ -17,42 +17,43 @@ function print(node) {
   let
   div = element('div'),
   formatted = '',
-  pad = 0,
-  code;
+  pad = 0;
 
   div.appendChild(node);
 
-  code = div.innerHTML
+  div.innerHTML
     .replace(/^<div>(.*)<\/div>/, '$1')
-    .replace(/(>)(<)(\/*)/g, '$1\r\n$2$3');
+    .replace(/(>)(<)(\/*)/g, '$1\r\n$2$3')
+    .split('\r\n')
+      .forEach(function(node) {
+        let
+        indent = 0,
+        padding = '',
+        i = 0;
 
-  code.split('\r\n').forEach(function(node) {
-    let
-    indent = 0,
-    padding = '',
-    i = 0;
+        if (node.match( /.+<\/\w[^>]*>$/ )) {
+          indent = 0;
+        } else if (node.match( /^<\/\w/ )) {
+          if (pad !== 0) {
+            pad -= 1;
+          }
+        } else if (node.match( /^<\w[^>]*[^\/]>.*$/ )) {
+          indent = 1;
+        } else {
+          indent = 0;
+        }
 
-    if (node.match( /.+<\/\w[^>]*>$/ )) {
-      indent = 0;
-    } else if (node.match( /^<\/\w/ )) {
-      if (pad !== 0) {
-        pad -= 1;
-      }
-    } else if (node.match( /^<\w[^>]*[^\/]>.*$/ )) {
-      indent = 1;
-    } else {
-      indent = 0;
-    }
+        for (; i < pad; i++) {
+          padding += '  ';
+        }
 
-    for (; i < pad; i++) {
-      padding += '  ';
-    }
+        formatted += padding + node + '\r\n';
+        pad += indent;
+      });
 
-    formatted += padding + node + '\r\n';
-    pad += indent;
-  });
-
-  pre.innerHTML = formatted.replace(/</g, '&lt;');
+  pre.innerHTML = formatted
+    .replace(/<br>/g, '<br />\n')
+    .replace(/</g, '&lt;');
 }
 
 const

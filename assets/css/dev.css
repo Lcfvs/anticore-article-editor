@@ -50,7 +50,6 @@ section.dev h1 {
 
 section.dev pre {
     position: absolute;
-    overflow-y: auto;
     filter: brightness(600%);
     background: rgba(65, 143, 159, .1);
     border: .063em solid rgba(65, 143, 159, .05);
@@ -59,4 +58,6 @@ section.dev pre {
     left: 0;
     right: 0;
     margin: 0;
+    white-space: pre-wrap;
+    word-wrap: break-word;
 }

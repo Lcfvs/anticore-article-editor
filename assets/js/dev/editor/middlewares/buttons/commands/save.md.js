@@ -17,7 +17,7 @@ function onClick(event) {
 
   form.elements.article.value = clone.outerHTML;
   event.preventDefault();
-  console.log(form.elements.article.value);
+  console.log(form.elements.article.value.replace(/<br>/g, '<br />'));
 }
 
 on('form button:not([type])', function (element, next) {

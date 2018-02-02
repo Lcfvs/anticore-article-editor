@@ -1,9 +1,8 @@
-import {on} from '../../../dom';
-import {listenClick} from '../../../dom/listeners';
-import {one} from '../../../dom/selection';
+import {on} from '../../../dom/on';
+import {listenClick} from 'anticore-tools/dom/listeners/listenClick';
 
 function onClick(event) {
-  one().execCommand('redo');
+  event.target.ownerDocument.execCommand('redo');
 }
 
 on('form article .options button.redo', function (element, next) {

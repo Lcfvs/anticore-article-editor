@@ -1,7 +1,8 @@
 import anticore from 'anticore';
 import './editor';
 import './test.md';
-import {listenClick, listenSubmit} from './editor/dom/listeners';
+import {listenClick} from 'anticore-tools/dom/listeners/listenClick';
+import {listenSubmit} from 'anticore-tools/dom/listeners/listenSubmit';
 
 anticore.on([
   'body > header a:not([download]):not([target]):not([href^="data:"])',

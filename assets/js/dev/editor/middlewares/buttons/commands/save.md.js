@@ -1,8 +1,11 @@
-import {forEach} from '../../../utils';
-import {listenClick} from '../../../dom/listeners';
-import {all, closest, one} from '../../../dom/queries';
-import {clean, remove} from '../../../dom/shapers';
-import {on} from '../../../dom';
+import {forEach} from 'anticore-tools/utils/array/forEach';
+import {on} from '../../../dom/on';
+import {listenClick} from 'anticore-tools/dom/listeners/listenClick';
+import {all} from 'anticore-tools/dom/queries/all';
+import {closest} from 'anticore-tools/dom/queries/closest';
+import {one} from 'anticore-tools/dom/queries/one';
+import {clean} from '../../../dom/shapers/clean';
+import {remove} from 'anticore-tools/dom/shapers/remove';
 
 function onClick(event) {
   let

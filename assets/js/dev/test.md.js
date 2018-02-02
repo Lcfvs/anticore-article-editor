@@ -1,8 +1,8 @@
-import {one} from './editor/dom/queries';
-import {on} from './editor/dom';
-import {listenClick} from './editor/dom/listeners';
+import {one} from 'anticore-tools/dom/queries/one';
+import {on} from './editor/dom/on';
+import {listenClick} from 'anticore-tools/dom/listeners/listenClick';
 import test from './test.js';
-import {element} from './editor/dom/shapers';
+import {element} from 'anticore-tools/dom/shapers/element';
 
 function onOpen() {
   test(print);

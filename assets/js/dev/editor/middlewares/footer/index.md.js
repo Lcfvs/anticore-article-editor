@@ -1,6 +1,6 @@
-import {on} from '../../dom';
-import {one} from '../../dom/queries';
-import {append} from '../../dom/shapers';
+import {on} from '../../dom/on';
+import {one} from 'anticore-tools/dom/queries/one';
+import {append} from 'anticore-tools/dom/shapers/append';
 
 on('footer[data-append]', function(element, next) {
   let

@@ -1,6 +1,7 @@
-import {isText, matches} from './index';
-import {closest} from '../queries';
-import {nodeName} from './nodeName';
+import {isText} from 'anticore-tools/dom/infos/isText';
+import {matches} from 'anticore-tools/dom/infos/matches';
+import {closest} from 'anticore-tools/dom/queries/closest';
+import {nodeName} from 'anticore-tools/dom/infos/nodeName';
 
 export function isFirstP(node) {
   if (isText(node)) {

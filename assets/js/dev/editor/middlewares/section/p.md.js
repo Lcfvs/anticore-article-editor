@@ -1,5 +1,5 @@
-import {on} from '../../dom';
-import {listenP} from '../../core';
+import {on} from '../../dom/on';
+import {listenP} from '../../core/listenP';
 
 on('section p[contenteditable=true]', function (element, next) {
   listenP(element);

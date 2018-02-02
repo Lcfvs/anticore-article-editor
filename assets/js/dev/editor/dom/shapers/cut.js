@@ -1,7 +1,11 @@
-import {closest, nextSiblings} from '../queries';
-import {isElement, isEmpty, isText} from '../infos';
-import {append, appendAll} from '.';
-import {fragment} from './fragment';
+import {closest} from 'anticore-tools/dom/queries/closest';
+import {nextSiblings} from 'anticore-tools/dom/queries/nextSiblings';
+import {isElement} from 'anticore-tools/dom/infos/isElement';
+import {isText} from 'anticore-tools/dom/infos/isText';
+import {isEmpty} from 'anticore-tools/dom/infos/isEmpty';
+import {append} from 'anticore-tools/dom/shapers/append';
+import {appendAll} from 'anticore-tools/dom/shapers/appendAll';
+import {fragment} from 'anticore-tools/dom/shapers/fragment';
 
 export function cut(target, offset) {
   let

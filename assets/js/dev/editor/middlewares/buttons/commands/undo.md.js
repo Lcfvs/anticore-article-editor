@@ -1,9 +1,8 @@
-import {on} from '../../../dom';
-import {listenClick} from '../../../dom/listeners';
-import {one} from '../../../dom/queries';
+import {on} from '../../../dom/on';
+import {listenClick} from 'anticore-tools/dom/listeners/listenClick';
 
 function onClick(event) {
-  one.execCommand('undo');
+  event.target.ownerDocument.execCommand('undo');
 }
 
 on('form article .options button.undo', function (element, next) {

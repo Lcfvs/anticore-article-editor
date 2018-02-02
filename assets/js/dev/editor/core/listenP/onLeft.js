@@ -1,17 +1,21 @@
-import {current, previous} from '../../dom/selection';
-import {clean, remove} from '../../dom/shapers';
-import {editables} from '../../dom/queries';
+import {current} from 'anticore-tools/dom/selection/current';
+import {previous} from 'anticore-tools/dom/selection/previous';
+import {clean} from '../../dom/shapers/clean';
+import {remove} from 'anticore-tools/dom/shapers/remove';
+import {editables} from '../../dom/queries/editables';
 
 export function onLeft(event) {
   let
   target = event.target,
-  selection = current();
+  selection = current(),
+  anchor = selection.anchorNode,
+  offset = selection.anchorOffset;
 
   if (!current().isCollapsed) {
     return;
   }
 
-  if ([target, target.firstChild].indexOf(selection.anchorNode) > -1 && !selection.anchorOffset) {
+  if ([target, target.firstChild].indexOf(anchor) > -1 && !offset) {
     previous(target, editables(target));
 
     if (clean(target)) {

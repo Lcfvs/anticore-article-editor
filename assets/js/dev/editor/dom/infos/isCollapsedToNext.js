@@ -1,5 +1,6 @@
-import {current} from '../selection';
-import {hasSameNodeName, text} from '.';
+import {current} from 'anticore-tools/dom/selection/current';
+import {hasSameNodeName} from './hasSameNodeName';
+import {text} from 'anticore-tools/dom/infos/text';
 
 export function isCollapsedToNext(event) {
   let

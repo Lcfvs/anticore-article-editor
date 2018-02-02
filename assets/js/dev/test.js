@@ -1,11 +1,9 @@
-import {one} from './editor/dom/queries';
-import {cut} from './editor/dom/shapers';
-import {current} from './editor/dom/selection';
+import {one} from 'anticore-tools/dom/queries/one';
+import {cut} from './editor/dom/shapers/cut';
 
 export default function (print) {
   let
   b = one('article header p b');
 
-  console.log(current());
   print(cut(b.firstChild, 3));
 }

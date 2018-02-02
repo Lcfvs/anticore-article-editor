@@ -190,3 +190,19 @@ input[type=reset]:disabled {
     color: rgba(65, 143, 159, .8);
     font-family: "Font Awesome\ 5 Free";
 }
+
+.anchorHandle {
+    position: absolute;
+    width: 50em;
+}
+
+.anchorHandle input,
+.anchorHandle label {
+    display: block;
+    width: 100%;
+    clear: both;
+}
+
+.anchorHandle button.closer {
+    float: right;
+}

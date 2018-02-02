@@ -1,5 +1,5 @@
-import {insert} from './index';
-import {start} from '../selection';
+import {insert} from 'anticore-tools/dom/shapers/insert';
+import {start} from 'anticore-tools/dom/selection/start';
 
 export function insertClone(node, deep) {
   let

@@ -1,7 +1,13 @@
-import {current, previous, starts} from '../../dom/selection';
-import {isFirstP, isHeadingNode} from '../../dom/infos';
-import {appendAll, clean, remove} from '../../dom/shapers';
-import {editables} from '../../dom/queries';
+import {current} from 'anticore-tools/dom/selection/current';
+import {previous} from 'anticore-tools/dom/selection/previous';
+import {starts} from 'anticore-tools/dom/selection/starts';
+import {appendAll} from 'anticore-tools/dom/shapers/appendAll';
+import {clean} from '../../dom/shapers/clean';
+import {remove} from 'anticore-tools/dom/shapers/remove';
+import {isText} from 'anticore-tools/dom/infos/isText';
+import {isFirstP} from '../../dom/infos/isFirstP';
+import {isHeadingNode} from '../../dom/infos/isHeadingNode';
+import {editables} from '../../dom/queries/editables';
 
 export function onBack(event) {
   let
@@ -22,6 +28,10 @@ export function onBack(event) {
     node = previous(target, editables(target));
 
     if (node && !isHeadingNode(node) && anchor) {
+      if (isText(node)) {
+        node = node.parentNode;
+      }
+
       appendAll(target.childNodes, node);
       clean(node);
       remove(target);

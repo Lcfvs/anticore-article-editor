@@ -1,5 +1,5 @@
-import {on} from '../../../dom';
-import {listenClick} from '../../../dom/listeners';
+import {on} from '../../../dom/on';
+import {listenClick} from 'anticore-tools/dom/listeners/listenClick';
 
 function onClick(event) {
 }

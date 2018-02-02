@@ -1,8 +1,8 @@
-import {on} from '../../../dom';
-import {listenClick} from '../../../dom/listeners';
-import {isHeadingNode} from '../../../dom/infos';
-import {one} from '../../../dom/queries';
-import {current} from '../../../dom/selection';
+import {on} from '../../../dom/on';
+import {listenClick} from 'anticore-tools/dom/listeners/listenClick';
+import {isHeadingNode} from '../../../dom/infos/isHeadingNode';
+import {one} from 'anticore-tools/dom/queries/one';
+import {current} from 'anticore-tools/dom/selection/current';
 
 function onClick(event) {
   let

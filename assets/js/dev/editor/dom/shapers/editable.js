@@ -1,4 +1,4 @@
-import {element} from './element';
+import {element} from 'anticore-tools/dom/shapers/element';
 
 export function editable(nodeName) {
   return element(nodeName, {

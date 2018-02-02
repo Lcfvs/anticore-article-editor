@@ -1,12 +1,10 @@
-import {
-  listenBack,
-  listenBlur,
-  listenDelete,
-  listenEnter,
-  listenLeft,
-  listenRight,
-  listenShiftEnter
-} from '../../dom/listeners';
+import {listenBack} from 'anticore-tools/dom/listeners/listenBack';
+import {listenBlur} from 'anticore-tools/dom/listeners/listenBlur';
+import {listenDelete} from 'anticore-tools/dom/listeners/listenDelete';
+import {listenEnter} from 'anticore-tools/dom/listeners/listenEnter';
+import {listenLeft} from 'anticore-tools/dom/listeners/listenLeft';
+import {listenRight} from 'anticore-tools/dom/listeners/listenRight';
+import {listenShiftEnter} from 'anticore-tools/dom/listeners/listenShiftEnter';
 import {onBlur} from './onBlur';
 import {onEnter} from './onEnter';
 import {onShiftEnter} from './onShiftEnter';

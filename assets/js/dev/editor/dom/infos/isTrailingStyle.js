@@ -1,8 +1,7 @@
-import {nodeName} from '.';
-import {isEmpty} from './isEmpty';
-import {indexOf} from '../../utils';
+import {nodeName} from 'anticore-tools/dom/infos/nodeName';
+import {isEmpty} from 'anticore-tools/dom/infos/isEmpty';
 
 export function isTrailingStyle(node) {
-  return indexOf(['b', 'i', 's', 'u'], nodeName(node)) > - 1
+  return ['b', 'i', 's', 'u'].indexOf(nodeName(node)) > - 1
   && isEmpty(node);
 }

@@ -1,9 +1,9 @@
-import {nodeName} from '.';
-import {isEmpty} from './isEmpty';
+import {nodeName} from 'anticore-tools/dom/infos/nodeName';
+import {isEmpty} from 'anticore-tools/dom/infos/isEmpty';
 
 export function isTrailingReturn(node) {
   return isBr(node)
-  && (isTrailing(node.previousSibling) || isTrailing(node.nextSibling));
+  && (nodeName(node.parentNode) === 'h1' || isTrailing(node.previousSibling) || isTrailing(node.nextSibling));
 }
 
 function isTrailing(sibling) {

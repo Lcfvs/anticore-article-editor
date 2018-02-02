@@ -3,6 +3,10 @@ body {
     filter: brightness(150%);
 }
 
+main > h1 {
+    color: rgba(65, 143, 159, .8);
+}
+
 form article h1[contenteditable=true],
 form article p[contenteditable=true],
 form article details[contenteditable=true] {

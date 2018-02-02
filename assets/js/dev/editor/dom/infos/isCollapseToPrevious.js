@@ -1,5 +1,5 @@
-import {current} from '../selection';
-import {hasSameNodeName} from './index';
+import {current} from 'anticore-tools/dom/selection/current';
+import {hasSameNodeName} from './hasSameNodeName';
 
 export function isCollapseToPrevious(event) {
 

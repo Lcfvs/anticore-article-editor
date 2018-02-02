@@ -1,7 +1,11 @@
-import {current, start, starts} from '../../dom/selection';
+import {current} from 'anticore-tools/dom/selection/current';
+import {start} from 'anticore-tools/dom/selection/start';
+import {starts} from 'anticore-tools/dom/selection/starts';
+import {insert} from 'anticore-tools/dom/shapers/insert';
 import {listenP} from '../listenP';
-import {clean, cut, insert} from '../../dom/shapers';
-import {isFirstP} from '../../dom/infos';
+import {clean} from '../../dom/shapers/clean';
+import {cut} from '../../dom/shapers/cut';
+import {isFirstP} from '../../dom/infos/isFirstP';
 
 export function onEnter(event) {
   let
@@ -17,14 +21,14 @@ export function onEnter(event) {
     return;
   }
 
-  if (isFirstP(target) && starts(target)){console.log(1)
+  if (isFirstP(target) && starts(target)){
     return;
   }
 
-  if (!offset && anchor === target) {console.log(2)
+  if (!offset && anchor === target) {
     return;
   }
-  console.log(3)
+
   rest = cut(anchor, offset);
   rest.normalize();
   clean(target);

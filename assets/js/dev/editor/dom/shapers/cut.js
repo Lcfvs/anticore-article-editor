@@ -1,4 +1,4 @@
-import {closest} from 'anticore-tools/dom/queries/closest';
+import {closestOrSelf} from 'anticore-tools/dom/queries/closestOrSelf';
 import {nextSiblings} from 'anticore-tools/dom/queries/nextSiblings';
 import {isElement} from 'anticore-tools/dom/infos/isElement';
 import {isText} from 'anticore-tools/dom/infos/isText';
@@ -7,11 +7,8 @@ import {append} from 'anticore-tools/dom/shapers/append';
 import {appendAll} from 'anticore-tools/dom/shapers/appendAll';
 import {fragment} from 'anticore-tools/dom/shapers/fragment';
 
-export function cut(target, offset) {
-  let
-  editable = closest('[contenteditable=true]', target);
-
-  return recurse(editable, target, offset);
+export function cut(node, offset) {
+  return recurse(closestOrSelf('[contenteditable=true]', node), node, offset);
 }
 
 function recurse(parent, target, offset) {
@@ -26,6 +23,16 @@ function recurse(parent, target, offset) {
   }
 
   clone = parent.cloneNode(false);
+
+  if (parent === target) {
+    current = parent.childNodes[offset];
+    siblings = nextSiblings(current);
+    append(current, clone);
+    appendAll(siblings, clone);
+
+    return clone;
+  }
+
   current = parent.firstChild;
 
   while (current && !clone.contains(current)) {

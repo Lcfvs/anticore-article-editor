@@ -28,7 +28,6 @@ export function onEnter(event) {
   if (!offset && anchor === target) {
     return;
   }
-
   rest = cut(anchor, offset);
   rest.normalize();
   clean(target);

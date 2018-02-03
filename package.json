@@ -10,11 +10,11 @@
   "author": "lcf.vs <michael.rouges@gmail.com>",
   "license": "UNLICENSED",
   "dependencies": {
-    "anticore-tools": "^1.0.3"
+    "anticore-tools": "^1.0.5"
   },
   "devDependencies": {
     "anticore": "^1.9.1",
-    "anticore-tools": "^1.0.3",
+    "anticore-tools": "^1.0.5",
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",
     "babel-minify-webpack-plugin": "^0.2.0",

@@ -1,6 +1,6 @@
-import {clean} from '../../dom/shapers/clean';
+import {clean} from '../../dom/tree/clean';
 
-export function onShiftEnter(event) {
+export function onShiftEnterEvent(event) {
   let
   target = event.target;
 

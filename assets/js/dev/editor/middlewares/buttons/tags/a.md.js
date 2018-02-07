@@ -1,11 +1,11 @@
-import {on} from '../../../dom/on';
-import {listenClick} from 'anticore-tools/dom/listeners/listenClick';
+import {anticore} from 'anticore';
+import {onClick} from 'anticore/dom/emitter/on/onClick';
 
-function onClick(event) {
+function onClickEvent(event) {
 }
 
-on('.options button.anchor', function (element, next) {
-  listenClick(element, onClick);
+anticore.on('.options button.anchor', function (element, next) {
+  onClick(element, onClickEvent);
 
   next();
 });

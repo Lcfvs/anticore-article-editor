@@ -1,16 +1,20 @@
-import {one} from 'anticore-tools/dom/queries/one';
-import {on} from './editor/dom/on';
-import {listenClick} from 'anticore-tools/dom/listeners/listenClick';
+import {anticore} from 'anticore';
+import {one} from 'anticore/dom/query/one';
+import {firstNode} from 'anticore/dom/query/firstNode';
+import {onClick} from 'anticore/dom/emitter/on/onClick';
 import test from './test.js';
-import {element} from 'anticore-tools/dom/shapers/element';
+import {element} from 'anticore/dom/node/element';
+import {html} from 'anticore/dom/tree/html';
+import {append} from 'anticore/dom/tree/append';
+import {toDOM} from 'anticore/primitive/string/toDOM';
 
 function onOpen() {
   test(print);
-  main.appendChild(section);
+  append(main, section);
 }
 
 function onClose() {
-  fragment.appendChild(section);
+  append(fragment, section);
 }
 
 function print(node) {
@@ -21,7 +25,7 @@ function print(node) {
 
   div.appendChild(node);
 
-  div.innerHTML
+  html(div)
     .replace(/^<div>(.*)<\/div>/, '$1')
     .replace(/(>)(<)(\/*)/g, '$1\r\n$2$3')
     .split('\r\n')
@@ -51,26 +55,25 @@ function print(node) {
         pad += indent;
       });
 
-  pre.innerHTML = formatted
+  html(pre, formatted
     .replace(/<br>/g, '<br />\n')
-    .replace(/</g, '&lt;');
+    .replace(/</g, '&lt;'));
 }
 
 const
 main = one('main'),
-fragment = one().createRange()
-  .createContextualFragment(`<section class="dev">
+fragment = toDOM(`<section class="dev">
     <h1>Test result</h1>
     <button class="closer" type="button">X</button>
     <pre></pre>
 </section>`),
-section = fragment.firstChild,
+section = firstNode(fragment),
 pre = one('pre', section);
 
-listenClick(one('.closer', section), onClose);
+onClick(one('.closer', section), onClose);
 
-on('button.test', function (element, next) {
-  listenClick(element, onOpen);
+anticore.on('button.test', function (element, next) {
+  onClick(element, onOpen);
 
   next();
 });

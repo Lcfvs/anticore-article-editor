@@ -1,10 +1,10 @@
-import {on} from '../../../dom/on';
-import {listenClick} from 'anticore-tools/dom/listeners/listenClick';
-import {isHeadingNode} from '../../../dom/infos/isHeadingNode';
-import {one} from 'anticore-tools/dom/queries/one';
-import {current} from 'anticore-tools/dom/selection/current';
+import {anticore} from 'anticore';
+import {onClick} from 'anticore/dom/emitter/on/onClick';
+import {isHeadingNode} from '../../../dom/info/isHeadingNode';
+import {one} from 'anticore/dom/query/one';
+import {current} from 'anticore/dom/selection/current';
 
-function onClick(event) {
+function onClickEvent(event) {
   let
   selection = current();
 
@@ -20,8 +20,8 @@ function onClick(event) {
   one().execCommand('bold');
 }
 
-on('form article .options button.bold', function (element, next) {
-  listenClick(element, onClick);
+anticore.on('form article .options button.bold', function (element, next) {
+  onClick(element, onClickEvent);
 
   next();
 });

@@ -1,12 +1,12 @@
-import {on} from '../../../dom/on';
-import {listenClick} from 'anticore-tools/dom/listeners/listenClick';
+import {anticore} from 'anticore';
+import {onClick} from 'anticore/dom/emitter/on/onClick';
 
-function onClick(event) {
+function onClickEvent(event) {
 
 }
 
-on('form article .options button.unpublish', function (element, next) {
-  listenClick(element, onClick);
+anticore.on('form article .options button.unpublish', function (element, next) {
+  onClick(element, onClickEvent);
 
   next();
 });

@@ -1,7 +1,7 @@
-import {on} from '../../dom/on';
+import {anticore} from 'anticore';
 import {listenA} from '../../core/listenA';
 
-on('a[data-url]', function (element, next) {
+anticore.on('a[data-url]', function (element, next) {
   listenA(element);
   next();
 });

@@ -1,20 +1,20 @@
-import {listenBack} from 'anticore-tools/dom/listeners/listenBack';
-import {listenEnter} from 'anticore-tools/dom/listeners/listenEnter';
-import {listenShiftEnter} from 'anticore-tools/dom/listeners/listenShiftEnter';
-import {closest} from 'anticore-tools/dom/queries/closest';
-import {editables} from '../dom/queries/editables';
-import {isEmpty} from 'anticore-tools/dom/infos/isEmpty';
-import {next} from 'anticore-tools/dom/selection/next';
-import {clean} from '../dom/shapers/clean';
-import {remove} from 'anticore-tools/dom/shapers/remove';
+import {onBack} from 'anticore/dom/emitter/on/onBack';
+import {onEnter} from 'anticore/dom/emitter/on/onEnter';
+import {onShiftEnter} from 'anticore/dom/emitter/on/onShiftEnter';
+import {closest} from 'anticore/dom/query/closest';
+import {editables} from '../dom/query/editables';
+import {isEmpty} from 'anticore/dom/info/isEmpty';
+import {next} from 'anticore/dom/selection/next';
+import {clean} from '../dom/tree/clean';
+import {remove} from 'anticore/dom/tree/remove';
 
 export function listenH1(element) {
-  listenEnter(element, onEnter, true);
-  listenShiftEnter(element, preventDefault, true);
-  listenBack(element, removeSection, true);
+  onEnter(element, onEnterEvent, true);
+  onShiftEnter(element, preventDefault, true);
+  onBack(element, removeSection, true);
 }
 
-function onEnter(event) {
+function onEnterEvent(event) {
   let
   target = event.target;
 

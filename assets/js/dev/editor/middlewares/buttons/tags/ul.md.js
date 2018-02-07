@@ -1,8 +1,6 @@
-import {on} from '../../../dom/on';
+import {anticore} from 'anticore';
 
-on('button.add.ul', function () {
-  return function (element, next) {
+anticore.on('button.add.ul', function (element, next) {
 
-    next();
-  };
-}());
+  next();
+});

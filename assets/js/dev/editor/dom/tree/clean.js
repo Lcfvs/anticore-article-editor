@@ -1,10 +1,10 @@
-import {remove} from 'anticore-tools/dom/shapers/remove';
-import {returns} from '../queries/returns';
-import {styles} from '../queries/styles';
-import {isEmpty} from 'anticore-tools/dom/infos/isEmpty';
-import {isTrailingStyle} from '../infos/isTrailingStyle';
-import {isTrailingReturn} from '../infos/isTrailingReturn';
-import {forEach} from 'anticore-tools/utils/array/forEach';
+import {remove} from 'anticore/dom/tree/remove';
+import {returns} from '../query/returns';
+import {styles} from '../query/styles';
+import {isEmpty} from 'anticore/dom/info/isEmpty';
+import {isTrailingStyle} from '../info/isTrailingStyle';
+import {isTrailingReturn} from '../info/isTrailingReturn';
+import {forEach} from 'anticore/primitive/array/forEach';
 
 export function clean(node) {
   forEach(styles(node), removeTrailingStyle);

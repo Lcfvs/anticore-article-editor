@@ -1,14 +1,16 @@
-import {current} from 'anticore-tools/dom/selection/current';
+import {current} from 'anticore/dom/selection/current';
 import {hasSameNodeName} from './hasSameNodeName';
-import {text} from 'anticore-tools/dom/infos/text';
+import {text} from 'anticore/dom/tree/text';
+import {nextElement} from 'anticore/dom/query/nextElement';
+import {lastNode} from 'anticore/dom/query/lastNode';
 
 export function isCollapsedToNext(event) {
   let
   target = event.target,
   selection = current(),
   focused = selection.focusNode,
-  last = target.lastChild,
-  next = target.nextElementSibling;
+  last = lastNode(target),
+  next = nextElement(target);
 
   return next
   && selection.isCollapsed

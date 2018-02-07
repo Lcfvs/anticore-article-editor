@@ -1,5 +1,5 @@
-import {nodeName} from 'anticore-tools/dom/infos/nodeName';
-import {isEmpty} from 'anticore-tools/dom/infos/isEmpty';
+import {nodeName} from 'anticore/dom/info/nodeName';
+import {isEmpty} from 'anticore/dom/info/isEmpty';
 
 export function isTrailingReturn(node) {
   return isBr(node)

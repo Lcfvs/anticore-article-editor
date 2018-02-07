@@ -1,26 +1,26 @@
-import {listenBack} from 'anticore-tools/dom/listeners/listenBack';
-import {listenBlur} from 'anticore-tools/dom/listeners/listenBlur';
-import {listenDelete} from 'anticore-tools/dom/listeners/listenDelete';
-import {listenEnter} from 'anticore-tools/dom/listeners/listenEnter';
-import {listenLeft} from 'anticore-tools/dom/listeners/listenLeft';
-import {listenRight} from 'anticore-tools/dom/listeners/listenRight';
-import {listenShiftEnter} from 'anticore-tools/dom/listeners/listenShiftEnter';
-import {onBlur} from './onBlur';
-import {onEnter} from './onEnter';
-import {onShiftEnter} from './onShiftEnter';
-import {onBack} from './onBack';
-import {onDelete} from './onDelete';
-import {onLeft} from './onLeft';
-import {onRight} from './onRight';
+import {onBack} from 'anticore/dom/emitter/on/onBack';
+import {onBlur} from 'anticore/dom/emitter/on/onBlur';
+import {onDelete} from 'anticore/dom/emitter/on/onDelete';
+import {onEnter} from 'anticore/dom/emitter/on/onEnter';
+import {onLeft} from 'anticore/dom/emitter/on/onLeft';
+import {onRight} from 'anticore/dom/emitter/on/onRight';
+import {onShiftEnter} from 'anticore/dom/emitter/on/onShiftEnter';
+import {onBlurEvent} from './onBlurEvent';
+import {onEnterEvent} from './onEnterEvent';
+import {onShiftEnterEvent} from './onShiftEnterEvent';
+import {onBackEvent} from './onBackEvent';
+import {onDeleteEvent} from './onDeleteEvent';
+import {onLeftEvent} from './onLeftEvent';
+import {onRightEvent} from './onRightEvent';
 
 export function listenP(element) {
-  listenBlur(element, onBlur, true);
-  listenEnter(element, onEnter, true);
-  listenShiftEnter(element, onShiftEnter, true);
-  listenBack(element, onBack, true);
-  listenDelete(element, onDelete, true);
-  listenLeft(element, onLeft, true);
-  listenRight(element, onRight, true);
+  onBlur(element, onBlurEvent, true);
+  onEnter(element, onEnterEvent, true);
+  onShiftEnter(element, onShiftEnterEvent, true);
+  onBack(element, onBackEvent, true);
+  onDelete(element, onDeleteEvent, true);
+  onLeft(element, onLeftEvent, true);
+  onRight(element, onRightEvent, true);
 
   return element;
 }

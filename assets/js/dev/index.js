@@ -1,8 +1,8 @@
-import anticore from 'anticore';
+import {anticore} from 'anticore';
 import './editor';
 import './test.md';
-import {listenClick} from 'anticore-tools/dom/listeners/listenClick';
-import {listenSubmit} from 'anticore-tools/dom/listeners/listenSubmit';
+import {onClick} from 'anticore/dom/emitter/on/onClick';
+import {onSubmit} from 'anticore/dom/emitter/on/onSubmit';
 
 anticore.on([
   'body > header a:not([download]):not([target]):not([href^="data:"])',
@@ -13,18 +13,18 @@ anticore.on([
   'body > footer a[target=_self]:not([download]):not([href^="data:"])'
 ].join(','),
 function(element, next) {
-  listenClick(element, anticore.fetchFromEvent);
+  onClick(element, anticore.fetchFromEvent);
 
   next();
 });
 
 anticore.on('form:not([target]),form[target=_self]', function(element, next) {
-  listenSubmit(element, anticore.cleanAndFetch);
+  onSubmit(element, anticore.cleanAndFetch);
   next();
 });
 
 anticore.on('button[data-href]', function(element, next) {
-  listenClick(element, anticore.fetchFromEvent);
+  onClick(element, anticore.fetchFromEvent);
 
   next();
 });

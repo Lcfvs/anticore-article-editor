@@ -1,8 +1,8 @@
-import {on} from '../../dom/on';
-import {one} from 'anticore-tools/dom/queries/one';
-import {append} from 'anticore-tools/dom/shapers/append';
+import {anticore} from 'anticore';
+import {one} from 'anticore/dom/query/one';
+import {append} from 'anticore/dom/tree/append';
 
-on('footer[data-append]', function(element, next) {
+anticore.on('footer[data-append]', function(element, next) {
   let
   target = one(element.dataset.append);
 

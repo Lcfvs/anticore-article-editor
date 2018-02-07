@@ -1,6 +1,6 @@
-import {on} from '../../dom/on';
+import {anticore} from 'anticore';
 
-on('article header img', function (element, next) {
+anticore.on('article header img', function (element, next) {
 
   next();
 });

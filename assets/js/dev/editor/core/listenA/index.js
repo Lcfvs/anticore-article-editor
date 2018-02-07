@@ -1,28 +1,42 @@
-import {create} from 'anticore-tools/utils/object/create';
-import {one} from 'anticore-tools/dom/queries/one';
-import {element} from 'anticore-tools/dom/shapers/element';
-import {current} from 'anticore-tools/dom/selection/current';
-import {isText} from 'anticore-tools/dom/infos/isText';
+import {create} from 'anticore/primitive/object/create';
+import {one} from 'anticore/dom/query/one';
+import {parent} from 'anticore/dom/query/parent';
+import {element} from 'anticore/dom/node/element';
+import {current} from 'anticore/dom/selection/current';
+import {boundingRect} from 'anticore/dom/info/boundingRect';
+import {isText} from 'anticore/dom/info/isText';
+import {append} from 'anticore/dom/tree/append';
+import {attr} from 'anticore/dom/tree/attr';
+import {data} from 'anticore/dom/tree/data';
+import {update} from 'anticore/dom/tree/update';
+import {html} from 'anticore/dom/tree/html';
+import {text} from 'anticore/dom/tree/text';
+import {remove} from 'anticore/dom/tree/remove';
 
 function handle(element) {
   let
   instance = create(),
   selection = current(),
-  anchor = selection.anchorNode;
+  anchor = selection.anchorNode,
+  position = boundingRect(selection.getRangeAt(0));
 
   instance.element = element;
   instance.tooltip = tooltip(instance);
-  instance.position = selection.getRangeAt(0).getBoundingClientRect();
+  instance.position = position;
 
   if (isText(anchor)) {
-    anchor.parentNode.appendChild(element);
+    append(element, parent(anchor));
   } else {
-    anchor.appendChild(element);
+    append(element, anchor);
   }
 
-  instance.tooltip.element.style.top = instance.position.y + 'px';
-  instance.tooltip.element.style.left = instance.position.x + 'px';
-  one('main').appendChild(instance.tooltip.element);
+  update(element, {
+    style: {
+      top: position.y + 'px',
+      left: position.x + 'px'
+    },
+    parent: one('main')
+  });
 
   return instance;
 }
@@ -35,11 +49,11 @@ function tooltip(handle) {
   instance.show = show;
   instance.close = close;
 
-  instance.element = element('span', {
+  instance.element = update(element('span'), {
     class: 'anchorHandle'
   });
 
-  instance.closer = element('button', {
+  instance.closer = update(element('button'), {
     class: 'closer',
     text: '×',
     onClick: close.bind(instance),
@@ -49,16 +63,18 @@ function tooltip(handle) {
   instance.labels = create();
   instance.inputs = create();
 
-  instance.labels.text = element('label', {
+  instance.labels.text = update(element('label'), {
     parent: instance.element,
     text: data(handle.element, 'text')
   });
 
+  data(handle.element, 'text', null);
+
   instance.inputs.text = element('input', {
     parent: instance.labels.text,
-    value: handle.element.textContent,
+    value: text(handle.element),
     onKeyUp: function (event) {
-      handle.element.innerHTML = event.target.value;
+      html(handle.element, event.target.value);
     }
   });
 
@@ -67,11 +83,13 @@ function tooltip(handle) {
     text: data(handle.element, 'title')
   });
 
+  data(handle.element, 'title', null);
+
   instance.inputs.title = element('input', {
     parent: instance.labels.title,
     value: handle.element.title,
     onKeyUp: function (event) {
-      handle.element.title = event.target.value;
+      attr(handle.element, 'title', event.target.value);
     }
   });
 
@@ -80,11 +98,13 @@ function tooltip(handle) {
     text: data(handle.element, 'url')
   });
 
+  data(handle.element, 'url', null);
+
   instance.inputs.url = element('input', {
     parent: instance.labels.url,
-    value: handle.element.href,
+    value: attr(handle.element, 'href'),
     onKeyUp: function (event) {
-      handle.element.href = event.target.value;
+      attr(handle.element, 'href', event.target.value);
     }
   });
 
@@ -92,22 +112,13 @@ function tooltip(handle) {
 }
 
 function show() {
-  this.handle.element.appendChild(this.element);
+  append(this.handle.element, this.element);
 }
 
 function close() {
-  this.handle.element.removeChild(this.element);
-}
-
-function data(element, name) {
-  let
-  value = element.dataset[name];
-
-  element.removeAttribute('data-' + name);
-
-  return value;
+  remove(this.element);
 }
 
 export function listenA(element) {
-console.log(handle(element));
+  console.log(handle(element));
 }

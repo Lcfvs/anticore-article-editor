@@ -1,5 +1,5 @@
 {
-  "name": "contentEditable",
+  "name": "anticore-article-editor",
   "version": "1.0.0",
   "description": "",
   "repository": "https://github.com/Lcfvs/anticore-article-editor",
@@ -9,15 +9,12 @@
   },
   "author": "lcf.vs <michael.rouges@gmail.com>",
   "license": "UNLICENSED",
-  "dependencies": {
-    "anticore-tools": "^1.0.5"
-  },
+  "dependencies": {},
   "devDependencies": {
-    "anticore": "^1.9.1",
-    "anticore-tools": "^1.0.5",
+    "anticore": "^2.0.4",
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",
-    "babel-minify-webpack-plugin": "^0.2.0",
+    "babel-minify-webpack-plugin": "^0.3.0",
     "babel-plugin-add-module-exports": "^0.2.1",
     "babel-preset-env": "^1.6.1",
     "css-loader": "^0.28.9",

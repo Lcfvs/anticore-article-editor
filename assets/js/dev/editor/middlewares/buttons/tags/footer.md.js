@@ -1,8 +1,6 @@
-import {on} from '../../../dom/on';
+import {anticore} from 'anticore';
 
-on('.tags button.footer', function () {
-  return function (element, next) {
+anticore.on('.tags button.footer', function (element, next) {
 
-    next();
-  };
-}());
+  next();
+});

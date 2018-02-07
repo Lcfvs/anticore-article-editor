@@ -1,7 +1,7 @@
-import {on} from '../../dom/on';
+import {anticore} from 'anticore';
 import {listenP} from '../../core/listenP';
 
-on('section p[contenteditable=true]', function (element, next) {
+anticore.on('section p[contenteditable=true]', function (element, next) {
   listenP(element);
   next();
 });

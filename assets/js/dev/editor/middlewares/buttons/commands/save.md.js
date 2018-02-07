@@ -1,20 +1,21 @@
-import {forEach} from 'anticore-tools/utils/array/forEach';
-import {on} from '../../../dom/on';
-import {listenClick} from 'anticore-tools/dom/listeners/listenClick';
-import {all} from 'anticore-tools/dom/queries/all';
-import {closest} from 'anticore-tools/dom/queries/closest';
-import {one} from 'anticore-tools/dom/queries/one';
-import {clean} from '../../../dom/shapers/clean';
-import {remove} from 'anticore-tools/dom/shapers/remove';
+import {forEach} from 'anticore/primitive/array/forEach';
+import {anticore} from 'anticore';
+import {onClick} from 'anticore/dom/emitter/on/onClick';
+import {all} from 'anticore/dom/query/all';
+import {closest} from 'anticore/dom/query/closest';
+import {one} from 'anticore/dom/query/one';
+import {clean} from '../../../dom/tree/clean';
+import {clone} from 'anticore/dom/tree/clone';
+import {remove} from 'anticore/dom/tree/remove';
 
-function onClick(event) {
+function onClickEvent(event) {
   let
   form = closest('form', event.target),
   article = one('article', form),
   clone;
 
   clean(article);
-  clone = article.cloneNode(true);
+  clone = clone(article, true);
   forEach(all('.options', clone), remove);
   forEach(all('.tags', clone), remove);
 
@@ -23,8 +24,8 @@ function onClick(event) {
   console.log(form.elements.article.value.replace(/<br>/g, '<br />'));
 }
 
-on('form button:not([type])', function (element, next) {
-  listenClick(element, onClick);
+anticore.on('form button:not([type])', function (element, next) {
+  onClick(element, onClickEvent);
 
   next();
 });

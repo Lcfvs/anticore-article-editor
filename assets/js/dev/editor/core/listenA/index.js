@@ -1,36 +1,39 @@
 import {create} from 'anticore/primitive/object/create';
 import {one} from 'anticore/dom/query/one';
+import {nodes} from 'anticore/dom/query/nodes';
 import {parent} from 'anticore/dom/query/parent';
 import {element} from 'anticore/dom/node/element';
 import {current} from 'anticore/dom/selection/current';
 import {boundingRect} from 'anticore/dom/info/boundingRect';
 import {isText} from 'anticore/dom/info/isText';
 import {append} from 'anticore/dom/tree/append';
+import {appendAll} from 'anticore/dom/tree/appendAll';
 import {attr} from 'anticore/dom/tree/attr';
 import {data} from 'anticore/dom/tree/data';
 import {update} from 'anticore/dom/tree/update';
 import {html} from 'anticore/dom/tree/html';
 import {text} from 'anticore/dom/tree/text';
 import {remove} from 'anticore/dom/tree/remove';
+import {cut} from '../../dom/tree/cut';
 
 function handle(element) {
   let
   instance = create(),
   selection = current(),
   anchor = selection.anchorNode,
-  position = boundingRect(selection.getRangeAt(0));
+  siblings = nodes(cut(anchor, selection.anchorOffset)),
+  target = anchor;
 
   instance.element = element;
-  instance.position = position;
   instance.tooltip = tooltip(instance);
+  append(instance.tooltip.element, one('main'));
 
   if (isText(anchor)) {
-    append(element, parent(anchor));
-  } else {
-    append(element, anchor);
+    target = parent(anchor);
   }
 
-  append(instance.tooltip.element, one('main'));
+  append(element, target);
+  appendAll(siblings, target);
 
   return instance;
 }
@@ -44,7 +47,7 @@ function tooltip(handle) {
   instance.close = close;
 
   instance.element = update(element('span'), {
-    class: 'anchorHandle'
+    class: 'modal anchorHandle'
   });
 
   instance.closer = update(element('button'), {
@@ -102,13 +105,6 @@ function tooltip(handle) {
     }
   });
 
-  update(instance.element, {
-    style: {
-      top: handle.position.y + 'px',
-      left: handle.position.x + 'px'
-    }
-  });
-
   return instance;
 }
 
@@ -117,6 +113,16 @@ function show() {
 }
 
 function close() {
+  let
+  inputs = this.inputs,
+  text = inputs.text.value,
+  title = inputs.title.value,
+  url = inputs.url.value;
+
+  if (!text.length || !title.length || url.length) {
+    remove(this.handle.element);
+  }
+
   remove(this.element);
 }
 

@@ -21,8 +21,8 @@ function handle(element) {
   position = boundingRect(selection.getRangeAt(0));
 
   instance.element = element;
-  instance.tooltip = tooltip(instance);
   instance.position = position;
+  instance.tooltip = tooltip(instance);
 
   if (isText(anchor)) {
     append(element, parent(anchor));
@@ -30,13 +30,7 @@ function handle(element) {
     append(element, anchor);
   }
 
-  update(element, {
-    style: {
-      top: position.y + 'px',
-      left: position.x + 'px'
-    },
-    parent: one('main')
-  });
+  append(instance.tooltip.element, one('main'));
 
   return instance;
 }
@@ -70,7 +64,7 @@ function tooltip(handle) {
 
   data(handle.element, 'text', null);
 
-  instance.inputs.text = element('input', {
+  instance.inputs.text = update(element('input'), {
     parent: instance.labels.text,
     value: text(handle.element),
     onKeyUp: function (event) {
@@ -78,14 +72,14 @@ function tooltip(handle) {
     }
   });
 
-  instance.labels.title = element('label', {
+  instance.labels.title = update(element('label'), {
     parent: instance.element,
     text: data(handle.element, 'title')
   });
 
   data(handle.element, 'title', null);
 
-  instance.inputs.title = element('input', {
+  instance.inputs.title = update(element('input'), {
     parent: instance.labels.title,
     value: handle.element.title,
     onKeyUp: function (event) {
@@ -93,18 +87,25 @@ function tooltip(handle) {
     }
   });
 
-  instance.labels.url = element('label', {
+  instance.labels.url = update(element('label'), {
     parent: instance.element,
     text: data(handle.element, 'url')
   });
 
   data(handle.element, 'url', null);
 
-  instance.inputs.url = element('input', {
+  instance.inputs.url = update(element('input'), {
     parent: instance.labels.url,
     value: attr(handle.element, 'href'),
     onKeyUp: function (event) {
       attr(handle.element, 'href', event.target.value);
+    }
+  });
+
+  update(instance.element, {
+    style: {
+      top: handle.position.y + 'px',
+      left: handle.position.x + 'px'
     }
   });
 

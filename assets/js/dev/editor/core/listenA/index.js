@@ -127,5 +127,5 @@ function close() {
 }
 
 export function listenA(element) {
-  console.log(handle(element));
+  handle(element);
 }

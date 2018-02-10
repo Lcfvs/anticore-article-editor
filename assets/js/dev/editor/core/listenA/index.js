@@ -4,7 +4,6 @@ import {nodes} from 'anticore/dom/query/nodes';
 import {parent} from 'anticore/dom/query/parent';
 import {element} from 'anticore/dom/node/element';
 import {current} from 'anticore/dom/selection/current';
-import {boundingRect} from 'anticore/dom/info/boundingRect';
 import {isText} from 'anticore/dom/info/isText';
 import {append} from 'anticore/dom/tree/append';
 import {appendAll} from 'anticore/dom/tree/appendAll';
@@ -119,7 +118,7 @@ function close() {
   title = inputs.title.value,
   url = inputs.url.value;
 
-  if (!text.length || !title.length || url.length) {
+  if (!text.length || !title.length || !url.length) {
     remove(this.handle.element);
   }
 

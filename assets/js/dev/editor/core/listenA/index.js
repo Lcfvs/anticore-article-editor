@@ -13,6 +13,7 @@ import {update} from 'anticore/dom/tree/update';
 import {html} from 'anticore/dom/tree/html';
 import {text} from 'anticore/dom/tree/text';
 import {remove} from 'anticore/dom/tree/remove';
+import {onClick} from 'anticore/dom/emitter/on/onClick';
 import {cut} from '../../dom/tree/cut';
 
 function handle(element) {
@@ -107,8 +108,12 @@ function tooltip(handle) {
   return instance;
 }
 
-function show() {
-  append(this.handle.element, this.element);
+function show(event) {
+  if (event) {
+    event.preventDefault();
+  }
+
+  append(this.element, one('main'));
 }
 
 function close() {
@@ -126,5 +131,5 @@ function close() {
 }
 
 export function listenA(element) {
-  handle(element);
+  onClick(element, show.bind(handle(element).tooltip));
 }

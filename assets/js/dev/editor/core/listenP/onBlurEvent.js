@@ -10,7 +10,7 @@ export function onBlurEvent(event) {
   let
   target = event.target;
 
-  if (!clean(target) && (isFirstP(target) || matches(selector, target))) {
+  if (!clean(target) || isFirstP(target) || matches(selector, target)) {
     return;
   }
 

@@ -5,6 +5,7 @@ import {remove} from 'anticore/dom/tree/remove';
 import {firstNode} from 'anticore/dom/query/firstNode';
 import {editables} from '../../dom/query/editables';
 import {indexOf} from 'anticore/primitive/array/indexOf';
+import {prevent} from 'anticore/dom/emitter/prevent';
 
 export function onLeftEvent(event) {
   let
@@ -24,6 +25,6 @@ export function onLeftEvent(event) {
       remove(target);
     }
 
-    event.preventDefault();
+    prevent(event);
   }
 }

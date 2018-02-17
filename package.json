@@ -11,7 +11,7 @@
   "license": "UNLICENSED",
   "dependencies": {},
   "devDependencies": {
-    "anticore": "^2.0.8",
+    "anticore": "^2.0.16",
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",
     "babel-minify-webpack-plugin": "^0.3.0",
@@ -24,8 +24,9 @@
     "flat-webpack": "^1.0.6",
     "grunt": "^1.0.2",
     "grunt-webpack": "^3.0.2",
+    "image-compressor.js": "^1.0.0",
     "js-polyfills": "^0.1.41",
-    "webpack": "^3.10.0",
+    "webpack": "^3.11.0",
     "webpack-css-concat-plugin": "0.0.0",
     "whatwg-fetch": "^2.0.3"
   }

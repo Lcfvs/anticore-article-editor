@@ -23,7 +23,7 @@ anticore.on('form:not([target]),form[target=_self]', function(element, next) {
   next();
 });
 
-anticore.on('button[data-href]:not(.anchor)', function(element, next) {
+anticore.on('button[data-href]:not(.anchor):not(.figure)', function(element, next) {
   onClick(element, anticore.fetchFromEvent);
 
   next();

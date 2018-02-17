@@ -1,4 +1,5 @@
 import './a.md';
+import './figure.md';
 import './h1.md';
 import './p.md';
 import {anticore} from 'anticore';

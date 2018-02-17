@@ -1,6 +1,7 @@
 import {forEach} from 'anticore/primitive/array/forEach';
 import {anticore} from 'anticore';
 import {onClick} from 'anticore/dom/emitter/on/onClick';
+import {prevent} from 'anticore/dom/emitter/prevent';
 import {all} from 'anticore/dom/query/all';
 import {closest} from 'anticore/dom/query/closest';
 import {one} from 'anticore/dom/query/one';
@@ -12,15 +13,15 @@ function onClickEvent(event) {
   let
   form = closest('form', event.target),
   article = one('article', form),
-  clone;
+  container;
 
   clean(article);
-  clone = clone(article, true);
-  forEach(all('.options', clone), remove);
-  forEach(all('.tags', clone), remove);
+  container = clone(article, true);
+  forEach(all('.options', container), remove);
+  forEach(all('.tags', container), remove);
 
-  form.elements.article.value = clone.outerHTML;
-  event.preventDefault();
+  form.elements.article.value = container.outerHTML;
+  prevent(event);
   console.log(form.elements.article.value.replace(/<br>/g, '<br />'));
 }
 

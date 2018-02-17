@@ -5,12 +5,15 @@ import {nodeName} from 'anticore/dom/info/nodeName';
 import {parent} from 'anticore/dom/query/parent';
 import {firstElement} from 'anticore/dom/query/firstElement';
 
+const
+selector = 'form article header p:first-of-type';
+
 export function isFirstP(node) {
   if (isText(node)) {
     node = closest('p', node);
   }
 
   return nodeName(node) === 'p'
-  && matches('form article header p:first-of-type', node)
+  && matches(selector, node)
   && firstElement(parent(node)) === node;
 }

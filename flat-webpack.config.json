@@ -15,6 +15,9 @@
           "alias": "fetch"
         },
         {
+          "src": "image-compressor.js"
+        },
+        {
           "src": "anticore"
         },
         {

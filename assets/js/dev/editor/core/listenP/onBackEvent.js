@@ -10,6 +10,7 @@ import {isHeadingNode} from '../../dom/info/isHeadingNode';
 import {editables} from '../../dom/query/editables';
 import {parent} from 'anticore/dom/query/parent';
 import {nodes} from 'anticore/dom/query/nodes';
+import {prevent} from 'anticore/dom/emitter/prevent';
 
 export function onBackEvent(event) {
   let
@@ -40,5 +41,5 @@ export function onBackEvent(event) {
     }
   }
 
-  event.preventDefault();
+  prevent(event);
 }

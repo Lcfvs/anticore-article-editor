@@ -35,12 +35,14 @@ html {
 }
 
 body {
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100%;
     margin: 0;
     padding: 0;
+    z-index: 1;
 }
 
 main {
@@ -131,6 +133,10 @@ form article header img:not([src]) + p:first-of-type::before {
     font-size: 4em;
 }
 
+form article header img[src] {
+    margin-right: 2em;
+}
+
 form > fieldset:last-of-type {
     border: none;
     padding: 0;
@@ -191,6 +197,7 @@ input[type=reset]:disabled {
     width: 100vw;
     top: 0;
     left: 0;
+    z-index: 1000;
     box-sizing: border-box;
     background-clip: content-box, padding-box;
     background-image: linear-gradient(to bottom, #fff 0, #fff 100%),
@@ -203,6 +210,8 @@ input[type=reset]:disabled {
 
 .modal > h1 {
     font-size: 1.5em;
+    display: inline-block;
+    margin: .5em .5em 0 .5em;
 }
 
 .modal > h1 + * {
@@ -213,6 +222,17 @@ input[type=reset]:disabled {
     margin: 1em;
 }
 
+.modal label,
+.modal input {
+    display: block;
+    clear: both;
+    box-sizing: border-box;
+}
+
+.modal input {
+    width: 100%;
+}
+
 .options button {
     width: 2em;
     padding: .25em 0;
@@ -220,20 +240,34 @@ input[type=reset]:disabled {
     font-family: "Font Awesome\ 5 Free";
 }
 
-.anchorHandle {
+.modal.img,
+.modal.anchor {
     width: 50em;
-    height: 15em;
+    height: 15.5em;
     box-sizing: content-box;
-    padding: calc(50vh - 7.5em) calc(25vw + 5em);
+    padding: calc(50vh - 7.75em) calc(25vw + 5em);
 }
 
-.anchorHandle label,
-.anchorHandle input {
+.modal.figure {
+    width: 50em;
+    height: 20em;
+    box-sizing: content-box;
+    padding: calc(50vh - 10em) calc(25vw + 5em);
+}
+
+.modal.img > :last-child,
+.modal.figure > :last-child {
+    text-align: center;
     display: block;
-    clear: both;
-    box-sizing: border-box;
+    border: dashed .188em #aaa;
+    border-radius: .7em;
+    color: rgba(136, 136, 136, 1);
+    height: 7.2em;
+    vertical-align: middle;
+    line-height: 7.2em;
 }
 
-.anchorHandle input {
-    width: 100%;
+.modal.img > :last-child input,
+.modal.figure > :last-child input {
+    visibility: hidden;
 }

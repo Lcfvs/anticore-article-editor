@@ -8,6 +8,7 @@ import {cut} from '../../dom/tree/cut';
 import {isFirstP} from '../../dom/info/isFirstP';
 import {nextElement} from 'anticore/dom/query/nextElement';
 import {parent} from 'anticore/dom/query/parent';
+import {prevent} from 'anticore/dom/emitter/prevent';
 
 export function onEnterEvent(event) {
   let
@@ -17,7 +18,7 @@ export function onEnterEvent(event) {
   offset = selection.anchorOffset,
   rest;
 
-  event.preventDefault();
+  prevent(event);
 
   if (!selection.isCollapsed) {
     return;

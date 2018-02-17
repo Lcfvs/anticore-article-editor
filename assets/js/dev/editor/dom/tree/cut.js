@@ -8,6 +8,7 @@ import {firstNode} from 'anticore/dom/query/firstNode';
 import {nextNode} from 'anticore/dom/query/nextNode';
 import {nextNodes} from 'anticore/dom/query/nextNodes';
 import {nodes} from 'anticore/dom/query/nodes';
+import {parent as parentNode} from 'anticore/dom/query/parent';
 import {append} from 'anticore/dom/tree/append';
 import {appendAll} from 'anticore/dom/tree/appendAll';
 import {clone} from 'anticore/dom/tree/clone';
@@ -31,6 +32,7 @@ function recurse(parent, target, offset) {
   container = clone(parent);
 
   if (parent === target) {
+    parent = isElement(parent) ? parent : parentNode(target);
     current = nodes(parent)[offset];
     siblings = nextNodes(current);
     append(current, container);

@@ -4,6 +4,7 @@ import {remove} from 'anticore/dom/tree/remove';
 import {appendAll} from 'anticore/dom/tree/appendAll';
 import {nextElement} from 'anticore/dom/query/nextElement';
 import {nodes} from 'anticore/dom/query/nodes';
+import {prevent} from 'anticore/dom/emitter/prevent';
 
 export function onDeleteEvent(event) {
   let
@@ -14,7 +15,7 @@ export function onDeleteEvent(event) {
     appendAll(nodes(next), target);
     clean(target);
     remove(next);
-    event.preventDefault();
+    prevent(event);
 
     return;
   }

@@ -23,7 +23,7 @@ function isValid(element) {
   && !matches('h1, a, b, i, s, o', element);
 }
 
-anticore.on('.options button.anchor', function (element, next) {
+anticore.on('form.editor .options button.anchor', function (element, next) {
   onClick(element, onClickEvent);
 
   next();

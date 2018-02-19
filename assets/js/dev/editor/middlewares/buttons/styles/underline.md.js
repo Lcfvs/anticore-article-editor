@@ -20,7 +20,7 @@ function onClickEvent(event) {
   one().execCommand('underline');
 }
 
-anticore.on('form article .options button.underline', function (element, next) {
+anticore.on('form.editor .options button.underline', function (element, next) {
   onClick(element, onClickEvent);
 
   next();

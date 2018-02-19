@@ -20,7 +20,7 @@ function onClickEvent(event) {
   one().execCommand('italic');
 }
 
-anticore.on('form article .options button.italic', function (element, next) {
+anticore.on('form.editor .options button.italic', function (element, next) {
   onClick(element, onClickEvent);
 
   next();

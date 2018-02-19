@@ -1,6 +1,6 @@
 import {anticore} from 'anticore';
 
-anticore.on('.tags button.footer', function (element, next) {
+anticore.on('form.editor .options button.footer', function (element, next) {
 
   next();
 });

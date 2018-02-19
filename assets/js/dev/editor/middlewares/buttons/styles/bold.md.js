@@ -20,7 +20,7 @@ function onClickEvent(event) {
   one().execCommand('bold');
 }
 
-anticore.on('form article .options button.bold', function (element, next) {
+anticore.on('form.editor .options button.bold', function (element, next) {
   onClick(element, onClickEvent);
 
   next();

@@ -10,35 +10,21 @@
     </head>
     <body>
         <main>
-            <h1>Éditeur d'article</h1>
-            <ol class="options">
-                <li><button class="bold" type="button"></button></li>
-                <li><button class="italic" type="button"></button></li>
-                <li><button class="underline" type="button"></button></li>
-                <li><button class="strike" type="button"></button></li>
-                <li><button class="anchor" data-href="./templates/article/anchor.html" type="button"></button></li>
-                <li><button class="figure" data-href="./templates/article/figure.html" type="button"></button></li>
-                <li><button class="content" data-href="./templates/article/content.html" type="button">Ajouter une section</button></li>
-                <li><button class="quiz" data-href="./templates/article/quiz.html" type="button">Ajouter un quiz</button></li>
-            </ol>
-            <form>
-                <input name="article" type="hidden" />
-                <!--
-                <ol>
-                    <li class="undo"><button class="fas" type="button"></button></li>
-                    <li class="redo"><button class="fas" type="button"></button></li>
-                    <li class="underline"><button class="fas" type="button"></button></li>
-                    <li class="strikeThrough"><button class="fas" type="button"></button></li>
-                    <li class="italic"><button class="fas" type="button"></button></li>
-                    <li class="bold"><button class="fas" type="button"></button></li>
-                    <li class="createLink"><button class="fas" type="button"></button></li>
-                    <li class="heading"><button class="fas" type="button"></button></li>
-                    <li class="insertParagraph"><button class="fas" type="button"></button></li>
-                    <li class="insertOrderedList"><button class="fas" type="button"></button></li>
-                    <li class="insertUnorderedList"><button class="fas" type="button"></button></li>
-                    <li class="insertDefinitionList"><button class="fas" type="button"></button></li>
+            <header>
+                <h1>Éditeur d'article</h1>
+            </header>
+            <form class="editor">
+                <ol class="options">
+                    <li><button class="bold" type="button"></button></li>
+                    <li><button class="italic" type="button"></button></li>
+                    <li><button class="underline" type="button"></button></li>
+                    <li><button class="strike" type="button"></button></li>
+                    <li><button class="anchor" data-href="./templates/article/anchor.html" type="button"></button></li>
+                    <li><button class="figure" data-href="./templates/article/figure.html" type="button"></button></li>
+                    <li><button class="content" data-href="./templates/article/content.html" type="button">Ajouter une section</button></li>
+                    <li><button class="quiz" data-href="./templates/article/quiz.html" type="button">Ajouter un quiz</button></li>
                 </ol>
-                -->
+                <input name="article" type="hidden" />
                 <article>
                     <header>
                         <h1 contenteditable="true">Titre de l'article</h1>

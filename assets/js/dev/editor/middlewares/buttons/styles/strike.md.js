@@ -20,7 +20,7 @@ function onClickEvent(event) {
   one().execCommand('strikeThrough');
 }
 
-anticore.on('form article .options button.strike', function (element, next) {
+anticore.on('form.editor .options button.strike', function (element, next) {
   onClick(element, onClickEvent);
 
   next();

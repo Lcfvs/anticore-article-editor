@@ -1,4 +1,5 @@
-import {current} from 'anticore/dom/selection/current';
+import {anchor} from 'anticore/dom/selection/anchor';
+import {isCollapsed} from 'anticore/dom/selection/isCollapsed';
 import {start} from 'anticore/dom/selection/start';
 import {starts} from 'anticore/dom/selection/starts';
 import {before} from 'anticore/dom/tree/before';
@@ -9,34 +10,41 @@ import {isFirstP} from '../../dom/info/isFirstP';
 import {nextElement} from 'anticore/dom/query/nextElement';
 import {parent} from 'anticore/dom/query/parent';
 import {prevent} from 'anticore/dom/emitter/prevent';
+import {isEmpty} from 'anticore/dom/info/isEmpty';
 
 export function onEnterEvent(event) {
   let
   target = event.target,
-  selection = current(),
-  anchor = selection.anchorNode,
-  offset = selection.anchorOffset,
+  node = anchor.node(),
+  offset = anchor.offset(),
   rest;
 
-  prevent(event);
+  if (isInvalid(target)) {
+    return prevent(event);
+  }
 
-  if (!selection.isCollapsed) {
+  if (node !== target) {
     return;
   }
 
-  if (isFirstP(target) && starts(target)){
-    return;
-  }
-
-  if (!offset && anchor === target) {
-    return;
-  }
-
-  rest = cut(anchor, offset);
+  rest = cut(node, offset);
   rest.normalize();
   clean(target);
   clean(rest);
   listenP(rest);
   before(rest, nextElement(target), parent(target));
   start(rest);
+  prevent(event);
+}
+
+function isInvalid(target) {
+  let
+  node = anchor.node(),
+  offset = anchor.offset();
+
+  return !isCollapsed()
+  || isEmpty(target)
+  || isEmpty(node)
+  || (isFirstP(target) && starts(target))
+  || (!offset && node === target);
 }

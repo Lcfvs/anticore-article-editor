@@ -3,7 +3,8 @@ import {isCollapsed} from 'anticore/dom/selection/isCollapsed';
 import {start} from 'anticore/dom/selection/start';
 import {starts} from 'anticore/dom/selection/starts';
 import {before} from 'anticore/dom/tree/before';
-import {listenP} from '../listenP';
+import {isFirstLi} from '../../dom/info/isFirstLi';
+import {listenLi} from '../listenLi';
 import {clean} from '../../dom/tree/clean';
 import {cut} from '../../dom/tree/cut';
 import {isFirstP} from '../../dom/info/isFirstP';
@@ -19,13 +20,9 @@ export function onEnterEvent(event) {
   offset = anchor.offset(),
   rest;
 
+  prevent(event);
+
   if (isInvalid(target)) {
-    return prevent(event);
-  }
-
-  if (node !== target) {
-    clean(target);
-
     return;
   }
 
@@ -33,10 +30,9 @@ export function onEnterEvent(event) {
   rest.normalize();
   clean(target);
   clean(rest);
-  listenP(rest);
+  listenLi(rest);
   before(rest, nextElement(target), parent(target));
   start(rest);
-  prevent(event);
 }
 
 function isInvalid(target) {
@@ -47,6 +43,6 @@ function isInvalid(target) {
   return !isCollapsed()
   || isEmpty(target)
   || isEmpty(node)
-  || (isFirstP(target) && starts(target))
+  || (isFirstLi(target) && starts(target))
   || (!offset && node === target);
 }

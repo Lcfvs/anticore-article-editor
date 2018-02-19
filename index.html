@@ -11,6 +11,16 @@
     <body>
         <main>
             <h1>Éditeur d'article</h1>
+            <ol class="options">
+                <li><button class="bold" type="button"></button></li>
+                <li><button class="italic" type="button"></button></li>
+                <li><button class="underline" type="button"></button></li>
+                <li><button class="strike" type="button"></button></li>
+                <li><button class="anchor" data-href="./templates/article/anchor.html" type="button"></button></li>
+                <li><button class="figure" data-href="./templates/article/figure.html" type="button"></button></li>
+                <li><button class="content" data-href="./templates/article/content.html" type="button">Ajouter une section</button></li>
+                <li><button class="quiz" data-href="./templates/article/quiz.html" type="button">Ajouter un quiz</button></li>
+            </ol>
             <form>
                 <input name="article" type="hidden" />
                 <!--
@@ -31,24 +41,18 @@
                 -->
                 <article>
                     <header>
-                        <ol class="options">
-                            <li><button class="bold" type="button"></button></li>
-                            <li><button class="italic" type="button"></button></li>
-                            <li><button class="underline" type="button"></button></li>
-                            <li><button class="strike" type="button"></button></li>
-                            <li><button class="anchor" data-href="./templates/article/anchor.html" type="button"></button></li>
-                            <li><button class="figure" data-href="./templates/article/figure.html" type="button"></button></li>
-                        </ol>
                         <h1 contenteditable="true">Titre de l'article</h1>
                         <img data-alt="Description de l'image" data-h1="Édition d'image d'accroche" data-src="Choisissez une image" />
-                        <p contenteditable="true">Paragraphe de l'introduction donnant à l'utilisateur, l'envie de lire votre article.</p>
+                        <p contenteditable="true">Paragraphe de l'introduction donnant à l'utilisateur, l'envie de lire votre article.<br />Pour ajouter <b>une image d'accroche</b>, cliquez sur l'image, à gauche de ce paragraphe.<br />Pour ajouter <b>du contenu</b> à votre article, ajoutez des sections.</p>
                     </header>
-                    <ol class="tags">
-                        <li><button class="content" data-href="./templates/article/content.html" type="button">Ajouter une section</button></li>
-                        <li><button class="quiz" data-href="./templates/article/quiz.html" type="button">Ajouter un quiz</button></li>
-                        <!--<li><button class="test" type="button">Test</button></li>-->
-                    </ol>
-                    <footer></footer>
+                    <footer>
+                        <section class="tags">
+                            <h1>Tags</h1>
+                            <ul>
+                                <li contenteditable="true">Mot-clé thématique</li>
+                            </ul>
+                        </section>
+                    </footer>
                 </article>
                 <fieldset>
                     <ol>

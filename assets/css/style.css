@@ -29,17 +29,14 @@
 html {
     font-family: OpenSans, "Lucida Sans Unicode", "Lucida Grande", sans-serif;
     font-size: 1em;
-    height: 100%;
+    min-height: 100%;
     margin: 0;
     padding: 0;
 }
 
 body {
     position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
+    min-height: 100%;
     margin: 0;
     padding: 0;
     z-index: 1;
@@ -47,6 +44,7 @@ body {
 
 main {
     width: 50em;
+    margin: auto;
 }
 
 a {
@@ -61,15 +59,15 @@ ul {
 
 form article h1,
 form article p,
-form article :not(.options):not(.tags) > li {
-    border-radius: .25em;
-    background: rgba(65, 143, 159, .1);
+form article li {
     padding: .4em;
     box-sizing: border-box;
+    background: rgba(65, 143, 159, .1);
 }
 
 form article h1 {
     margin-bottom: 0;
+    border-radius: .25em .25em 0 0;
 }
 
 form article p {
@@ -77,29 +75,28 @@ form article p {
     margin-bottom: 0;
 }
 
-form article section,
-form article .tags {
+form article header,
+form article section {
     border-radius: .25em;
     position: relative;
+    background: rgba(65, 143, 159, .1);
 }
 
 form article details,
-form article ol:not(.options):not(.tags),
+form article ol,
 form article ul {
-    border-radius: .25em;
+    margin-top: .5em;
+    padding: .25em;
     background: rgba(65, 143, 159, .1);
     border: .063em solid rgba(65, 143, 159, .05);
 }
 
-form article .options li,
-form article .tags li {
-    display: inline;
+form article > * > :last-child {
+    border-radius: 0 0 .25em .25em;
 }
 
-form article .options br,
-form article .tags br,
-form article .tags section br:last-child {
-    display: none;
+.options li {
+    display: inline;
 }
 
 form article header img {
@@ -140,6 +137,15 @@ form article header img[src] {
 form > fieldset:last-of-type {
     border: none;
     padding: 0;
+}
+
+article > footer .tags li {
+    height: 2em;
+    display: inline-block;
+    padding: .25em;
+    background: rgba(255, 255, 255, .4);
+    margin-right: 1em;
+    border-radius: .25em;
 }
 
 button,
@@ -191,7 +197,7 @@ input[type=reset]:disabled {
 }
 
 .modal {
-    position: absolute;
+    position: fixed;
     display: block;
     max-height: 100vh;
     width: 100vw;
@@ -234,8 +240,7 @@ input[type=reset]:disabled {
 }
 
 .options button {
-    width: 2em;
-    padding: .25em 0;
+    padding: .25em;
     color: rgba(65, 143, 159, .8);
     font-family: "Font Awesome\ 5 Free";
 }

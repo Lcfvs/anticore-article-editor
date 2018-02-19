@@ -40,7 +40,5 @@ function removeDetails(event) {
 
   if (!one('details', section)) {
     remove(section);
-
-    attr(one('form article button.quiz'), 'disabled', null);
   }
 }

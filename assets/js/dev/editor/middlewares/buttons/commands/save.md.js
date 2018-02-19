@@ -17,8 +17,6 @@ function onClickEvent(event) {
 
   clean(article);
   container = clone(article, true);
-  forEach(all('.options', container), remove);
-  forEach(all('.tags', container), remove);
 
   form.elements.article.value = container.outerHTML;
   prevent(event);

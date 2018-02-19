@@ -1,6 +1,6 @@
 import {anticore} from 'anticore';
 
-anticore.on('.tags button.section', function (element, next) {
+anticore.on('.options button.section', function (element, next) {
 
   next();
 });

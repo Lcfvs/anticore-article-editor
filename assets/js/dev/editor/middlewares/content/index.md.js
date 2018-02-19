@@ -8,7 +8,7 @@ import {before} from 'anticore/dom/tree/before';
 
 anticore.on('section.content', function(element, next) {
   element.normalize();
-  before(element, one('article > .tags'));
+  before(element, one('article > footer'));
 
   next();
 });

@@ -7,7 +7,8 @@ import {isFirstLi} from '../../dom/info/isFirstLi';
 import {listenLi} from '../listenLi';
 import {clean} from '../../dom/tree/clean';
 import {cut} from '../../dom/tree/cut';
-import {isFirstP} from '../../dom/info/isFirstP';
+import {elements} from 'anticore/dom/query/elements';
+import {matches} from 'anticore/dom/info/matches';
 import {nextElement} from 'anticore/dom/query/nextElement';
 import {parent} from 'anticore/dom/query/parent';
 import {prevent} from 'anticore/dom/emitter/prevent';
@@ -38,11 +39,13 @@ export function onEnterEvent(event) {
 function isInvalid(target) {
   let
   node = anchor.node(),
-  offset = anchor.offset();
+  offset = anchor.offset(),
+  list = parent(target);
 
   return !isCollapsed()
   || isEmpty(target)
   || isEmpty(node)
   || (isFirstLi(target) && starts(target))
-  || (!offset && node === target);
+  || (!offset && node === target)
+  || matches('form article > footer > .tags ul', list) && elements(list).length > 5;
 }

@@ -62,7 +62,7 @@ form article p,
 form article li {
     padding: .4em;
     box-sizing: border-box;
-    background: rgba(65, 143, 159, .1);
+    background: rgba(255, 255, 255, .4);
 }
 
 form article h1 {
@@ -79,19 +79,18 @@ form article header,
 form article section {
     border-radius: .25em;
     position: relative;
-    background: rgba(65, 143, 159, .1);
+    background: rgba(65, 143, 159, .2);
 }
 
 form article details,
 form article ol,
 form article ul {
     margin-top: .5em;
-    padding: .25em;
-    background: rgba(65, 143, 159, .1);
-    border: .063em solid rgba(65, 143, 159, .05);
 }
 
-form article > * > :last-child {
+form article > header > :last-child,
+form article > section > :last-child,
+form article > footer > section > :last-child {
     border-radius: 0 0 .25em .25em;
 }
 
@@ -143,9 +142,9 @@ article > footer .tags li {
     height: 2em;
     display: inline-block;
     padding: .25em;
-    background: rgba(255, 255, 255, .4);
     margin-right: 1em;
     border-radius: .25em;
+    background: rgba(255, 255, 255, .4);
 }
 
 button,
@@ -156,12 +155,12 @@ input[type=reset] {
     margin: .25em .25em;
     display: inline-block;
     color: rgba(65, 143, 159, .8);
-    background: rgba(65, 143, 159, .1);
-    background: linear-gradient(top, rgba(65, 143, 159, .1) 0, rgba(65, 143, 159, .05) 100%);
-    background: -moz-linear-gradient(top, rgba(65, 143, 159, .1) 0, rgba(65, 143, 159, .05) 100%);
-    background: -webkit-linear-gradient(top, rgba(65, 143, 159, .1) 0, rgba(65, 143, 159, .05) 100%);
-    background: -o-linear-gradient(top, rgba(65, 143, 159, .1) 0, rgba(65, 143, 159, .05) 100%);
-    border: .25em solid rgba(65, 143, 159, .1);
+    background: rgba(65, 143, 159, .2);
+    background: linear-gradient(top, rgba(65, 143, 159, .2) 0, rgba(65, 143, 159, .05) 100%);
+    background: -moz-linear-gradient(top, rgba(65, 143, 159, .2) 0, rgba(65, 143, 159, .05) 100%);
+    background: -webkit-linear-gradient(top, rgba(65, 143, 159, .2) 0, rgba(65, 143, 159, .05) 100%);
+    background: -o-linear-gradient(top, rgba(65, 143, 159, .2) 0, rgba(65, 143, 159, .05) 100%);
+    border: .25em solid rgba(65, 143, 159, .2);
     border-radius: .25em;
     -moz-border-radius: .25em;
     -webkit-border-radius: .25em;

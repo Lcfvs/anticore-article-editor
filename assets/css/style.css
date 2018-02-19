@@ -147,6 +147,12 @@ article > footer .tags li {
     background: rgba(255, 255, 255, .4);
 }
 
+article > footer .tags li:before {
+    content: '';
+    font-family: "Font Awesome\ 5 Free";
+    margin-right: .25em;
+}
+
 button,
 input[type=button],
 input[type=submit],

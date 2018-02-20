@@ -26,6 +26,18 @@
     font-style: italic;
 }
 
+@font-face{
+    font-family: "FontAwesome5Free";
+    font-style: normal;
+    font-weight: 900;
+    src: url(../webfonts/fa-solid-900.eot);
+    src: url(../webfonts/fa-solid-900.eot?#iefix) format("embedded-opentype"),
+    url(../webfonts/fa-solid-900.woff2) format("woff2"),
+    url(../webfonts/fa-solid-900.woff) format("woff"),
+    url(../webfonts/fa-solid-900.ttf) format("truetype"),
+    url(../webfonts/fa-solid-900.svg#fontawesome) format("svg");
+}
+
 html {
     font-family: OpenSans, "Lucida Sans Unicode", "Lucida Grande", sans-serif;
     font-size: 1em;
@@ -51,10 +63,20 @@ a {
     text-decoration: none;
 }
 
-ol,
-ul {
+form .options,
+footer ul {
     list-style: none;
     padding: 0;
+}
+
+form.editor .options button {
+    padding: .25em;
+    color: rgba(65, 143, 159, .8);
+    font-family: FontAwesome5Free;
+}
+
+article {
+    counter-reset: sources;
 }
 
 form article h1,
@@ -125,7 +147,7 @@ form article header img:not([src]) + p:first-of-type::before {
     display: inline-block;
     float: left;
     z-index: 1;
-    font-family: "Font Awesome\ 5 Free";
+    font-family: FontAwesome5Free;
     font-size: 4em;
 }
 
@@ -149,7 +171,7 @@ article > footer .tags li {
 
 article > footer .tags li:before {
     content: '';
-    font-family: "Font Awesome\ 5 Free";
+    font-family: FontAwesome5Free;
     margin-right: .25em;
 }
 
@@ -211,8 +233,7 @@ input[type=reset]:disabled {
     z-index: 1000;
     box-sizing: border-box;
     background-clip: content-box, padding-box;
-    background-image: linear-gradient(to bottom, #fff 0, #fff 100%),
-    linear-gradient(to bottom, rgba(0, 0, 0, .3) 0, rgba(0, 0, 0, .3) 100%);
+    background-image: linear-gradient(to bottom, #fff 0, #fff 100%), linear-gradient(to bottom, rgba(0, 0, 0, .3) 0, rgba(0, 0, 0, .3) 100%);
 }
 
 .modal > .closer {
@@ -242,12 +263,6 @@ input[type=reset]:disabled {
 
 .modal input {
     width: 100%;
-}
-
-.options button {
-    padding: .25em;
-    color: rgba(65, 143, 159, .8);
-    font-family: "Font Awesome\ 5 Free";
 }
 
 .modal.img,

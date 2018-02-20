@@ -1,10 +1,3 @@
 import './a.md';
 import './figure.md';
-import './footer.md';
-import './h1.md';
-import './header.md';
-import './img.md';
-import './li.md';
-import './ol.md';
-import './section.md';
-import './ul.md';
+import './source.md';

@@ -11,7 +11,7 @@
   "license": "UNLICENSED",
   "dependencies": {},
   "devDependencies": {
-    "anticore": "^2.0.18",
+    "anticore": "^2.1.1",
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",
     "babel-minify-webpack-plugin": "^0.3.0",
@@ -20,7 +20,7 @@
     "css-loader": "^0.28.9",
     "es6-promise": "^4.2.4",
     "extract-loader": "^1.0.2",
-    "file-loader": "^1.1.6",
+    "file-loader": "^1.1.7",
     "flat-webpack": "^1.0.6",
     "grunt": "^1.0.2",
     "grunt-webpack": "^3.0.2",

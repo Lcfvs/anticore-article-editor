@@ -3,10 +3,8 @@
     <head>
         <meta charset="UTF-8">
         <title>Éditeur d'article</title>
-        <link href="./assets/css/fa-solid.min.css" rel="stylesheet" />
         <link href="./assets/css/style.css" rel="stylesheet" />
         <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no" />
-        <!--<link href="./assets/css/dev.css" rel="stylesheet" />-->
     </head>
     <body>
         <main>
@@ -21,8 +19,9 @@
                     <li><button class="strike" type="button"></button></li>
                     <li><button class="anchor" data-href="./templates/article/anchor.html" type="button"></button></li>
                     <li><button class="figure" data-href="./templates/article/figure.html" type="button"></button></li>
-                    <li><button class="content" data-href="./templates/article/content.html" type="button">Ajouter une section</button></li>
-                    <li><button class="quiz" data-href="./templates/article/quiz.html" type="button">Ajouter un quiz</button></li>
+                    <li><button class="source" data-href="./templates/article/source.html" type="button">+ Source</button></li>
+                    <li><button class="section" data-href="./templates/article/section.html" type="button">+ Section</button></li>
+                    <li><button class="quiz" data-href="./templates/article/quiz.html" type="button">+ Quiz</button></li>
                 </ol>
                 <input name="article" type="hidden" />
                 <article>
@@ -41,9 +40,7 @@
                     </footer>
                 </article>
                 <fieldset>
-                    <ol>
-                        <li><button>Enregistrer</button></li>
-                    </ol>
+                    <button>Enregistrer</button>
                 </fieldset>
             </form>
         </main>

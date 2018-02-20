@@ -8,7 +8,7 @@ import {closestOrSelf} from 'anticore/dom/query/closestOrSelf';
 
 function onClickEvent(event) {
   let
-  node = anchor.node();
+  node = anchor.node();console.log(node)
 
   return (
     !isCollapsed()

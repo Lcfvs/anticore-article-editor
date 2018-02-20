@@ -20,6 +20,7 @@ export function cut(node, offset) {
 
 function recurse(parent, target, offset) {
   let
+  childNodes,
   container,
   current,
   next,
@@ -29,11 +30,17 @@ function recurse(parent, target, offset) {
     return fragment();
   }
 
+  childNodes = nodes(parent);
+
+  if (!childNodes.length) {
+    return fragment();
+  }
+
   container = clone(parent);
 
   if (parent === target) {
     parent = isElement(parent) ? parent : parentNode(target);
-    current = nodes(parent)[offset];
+    current = childNodes[offset];
     siblings = nextNodes(current);
     append(current, container);
     appendAll(siblings, container);

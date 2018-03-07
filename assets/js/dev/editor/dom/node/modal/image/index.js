@@ -6,7 +6,7 @@ import {remove} from 'anticore/dom/tree/remove/index';
 import {update} from 'anticore/dom/tree/update/index';
 import {curry} from 'anticore/primitive/function/curry/index';
 import {create} from 'anticore/primitive/object/create/index';
-import {fromInput} from 'anticore/api/image/fromInput';
+import {imageFromInput} from 'anticore/api/image/imageFromInput';
 import {show} from '../show';
 import {nextOrClose} from '../nextOrClose';
 import {onFile} from '../onFile';
@@ -93,7 +93,7 @@ function tooltip(handle) {
   });
   instance.inputs.push(instance.inputs.src);
 
-  fromInput(curry(onFile, instance, options), instance.inputs.src);
+  imageFromInput(curry(onFile, instance, options), instance.inputs.src);
   onEnter(instance.inputs.src, instance.nextOrClose);
 
   return instance;

@@ -125,7 +125,7 @@ function tooltip(handle) {
   });
   instance.inputs.push(instance.inputs.src);
 
-  imageFromInput(curry(onFile, instance, options), instance.inputs.src);
+  imageFromInput(instance.inputs.src, curry(onFile, instance, options));
   onEnter(instance.inputs.src, instance.nextOrClose);
 
   return instance;

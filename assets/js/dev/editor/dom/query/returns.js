@@ -1,5 +1,5 @@
-import {all} from 'anticore/dom/query/all';
+import { all } from 'anticore/dom/query/all'
 
-export function returns(node) {
-  return all('br', node);
+export function returns (node) {
+  return all('br', node)
 }

@@ -1,14 +1,14 @@
-import {clean} from '../../dom/tree/clean';
-import {remove} from 'anticore/dom/tree/remove';
-import {isFirstLi} from '../../dom/info/isFirstLi';
+import { remove } from 'anticore/dom/tree/remove'
+import { isFirstLi } from '../../dom/info/isFirstLi'
+import { clean } from '../../dom/tree/clean'
 
-export function onBlurEvent(event) {
+export function onBlurEvent (event) {
   let
-  target = event.target;
+    target = event.target
 
   if (!clean(target) || isFirstLi(target)) {
-    return;
+    return
   }
 
-  remove(target);
+  remove(target)
 }

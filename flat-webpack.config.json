@@ -15,6 +15,9 @@
           "alias": "fetch"
         },
         {
+          "src": "platform"
+        },
+        {
           "src": "anticore"
         },
         {

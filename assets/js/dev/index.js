@@ -1,12 +1,13 @@
-import {anticore} from 'anticore';
-import {onClick} from 'anticore/dom/emitter/on/onClick';
-import {onSubmit} from 'anticore/dom/emitter/on/onSubmit';
-import './editor';
+import { anticore } from 'anticore'
+import { onClick } from 'anticore/dom/emitter/on/onClick'
+import { onSubmit } from 'anticore/dom/emitter/on/onSubmit'
+import './editor'
+import './log'
+import './debug'
 
-const
-a1 = ' a:not([download]):not([target]):not([href^="data:"])',
-a2 = ' a[target=_self]:not([download]):not([href^="data:"])',
-interactive = [
+const a1 = ' a:not([download]):not([target]):not([href^="data:"])'
+const a2 = ' a[target=_self]:not([download]):not([href^="data:"])'
+const interactive = [
   'body > header' + a1,
   'body > header' + a2,
   'main > :not(form)' + a1,
@@ -14,22 +15,23 @@ interactive = [
   'body > footer' + a1,
   'body > footer' + a2,
   'button[data-href]'
-].join(',');
+].join(',')
 
-anticore.on(interactive, function(element, next) {
-  onClick(element, anticore.fetchFromEvent);
+anticore.on(interactive, function (element, next) {
+  onClick(element, anticore.fetchFromEvent)
 
-  next();
-});
+  next()
+})
 
-anticore.on('form:not([target]),form[target=_self]', function(element, next) {
-  onSubmit(element, anticore.cleanAndFetch);
-  next();
-});
+anticore.on('form:not([target]),form[target=_self]', function (element, next) {
+  onSubmit(element, anticore.cleanAndFetch)
+  next()
+})
 
 anticore.fetchers.a =
 anticore.fetchers.button = function (element) {
-  return anticore.request(element.dataset.href || element.href, 'get', null, element);
-};
+  return anticore.request(element.dataset.href || element.href, 'get', null,
+    element)
+}
 
-anticore.populate();
+anticore.populate()

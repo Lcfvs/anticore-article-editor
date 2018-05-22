@@ -81,8 +81,13 @@ article {
 
 form article h1,
 form article p,
-form article li {
+form article footer li {
     padding: .4em;
+}
+
+form article h1,
+form article p,
+form article li {
     box-sizing: border-box;
     background: rgba(255, 255, 255, .4);
 }
@@ -155,6 +160,41 @@ form article header img[src] {
     margin-right: 2em;
 }
 
+form article > section .movers {
+    position: absolute;
+    top: 0;
+    right: -1em;
+    list-style: none;
+    margin: 0;
+}
+
+form article > section .movers li,
+form article > section .movers button {
+    margin: 0;
+}
+
+form article > section .movers button:before {
+    font-family: FontAwesome5Free;
+}
+
+form article > section .movers button.up:before {
+    content: '';
+}
+
+form article > section .movers button.remove:before {
+    content: '';
+}
+
+form article > section .movers button.down:before {
+    content: '';
+}
+
+form article img:not([src]) {
+    opacity: 0;
+    line-height: 0;
+    display: block;
+}
+
 form > fieldset:last-of-type {
     border: none;
     padding: 0;
@@ -163,7 +203,7 @@ form > fieldset:last-of-type {
 article > footer .tags li {
     height: 2em;
     display: inline-block;
-    padding: .25em;
+    padding: .25em .25em .25em 1.5em;
     margin-right: 1em;
     border-radius: .25em;
     background: rgba(255, 255, 255, .4);
@@ -172,6 +212,7 @@ article > footer .tags li {
 article > footer .tags li:before {
     content: '';
     font-family: FontAwesome5Free;
+    margin-left: -1em;
     margin-right: .25em;
 }
 

@@ -1,1 +1,1 @@
-import './li.md';
+import './li.md'

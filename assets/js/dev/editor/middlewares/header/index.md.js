@@ -1,3 +1,3 @@
-import './h1.md';
-import './img.md';
-import './p.md';
+import './h1.md'
+import './img.md'
+import './p.md'

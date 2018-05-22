@@ -1,1 +1,1 @@
-import './middlewares/index.md';
+import './middlewares/index.md'

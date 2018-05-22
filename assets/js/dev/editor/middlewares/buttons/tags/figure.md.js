@@ -1,25 +1,25 @@
-import {anticore} from 'anticore';
-import {closest} from 'anticore/dom/query/closest/index';
-import {anchor} from 'anticore/dom/selection/anchor';
-import {isCollapsed} from 'anticore/dom/selection/isCollapsed';
-import {closestOrSelf} from 'anticore/dom/query/closestOrSelf';
-import {onClick} from 'anticore/dom/emitter/on/onClick';
-import {prevent} from 'anticore/dom/emitter/prevent';
+import { anticore } from 'anticore'
+import { onClick } from 'anticore/dom/emitter/on/onClick'
+import { prevent } from 'anticore/dom/emitter/prevent'
+import { closest } from 'anticore/dom/query/closest/index'
+import { closestOrSelf } from 'anticore/dom/query/closestOrSelf'
+import { anchor } from 'anticore/dom/selection/anchor'
+import { isCollapsed } from 'anticore/dom/selection/isCollapsed'
 
-function onClickEvent(event) {
+function onClickEvent (event) {
   let
-  node = anchor.node();
+    node = anchor.node()
 
   return (
-    !isCollapsed()
-    || !closestOrSelf('[contenteditable=true]', node)
-    || closestOrSelf('h1, a, b, i, s, o', node)
-    || !closest('article > section', node)
-  ) && prevent(event);
+    !isCollapsed() ||
+    !closestOrSelf('[contenteditable=true]', node) ||
+    closestOrSelf('h1, a, b, i, s, o', node) ||
+    !closest('article > section', node)
+  ) && prevent(event)
 }
 
 anticore.on('form.editor .options button.figure', function (element, next) {
-  onClick(element, onClickEvent);
+  onClick(element, onClickEvent)
 
-  next();
-});
+  next()
+})

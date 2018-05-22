@@ -1,27 +1,27 @@
-import {anticore} from 'anticore';
-import {onClick} from 'anticore/dom/emitter/on/onClick';
-import {isHeadingNode} from '../../../dom/info/isHeadingNode';
-import {one} from 'anticore/dom/query/one';
-import {current} from 'anticore/dom/selection/current';
+import { anticore } from 'anticore'
+import { onClick } from 'anticore/dom/emitter/on/onClick'
+import { one } from 'anticore/dom/query/one'
+import { current } from 'anticore/dom/selection/current'
+import { isHeadingNode } from '../../../dom/info/isHeadingNode'
 
-function onClickEvent(event) {
+function onClickEvent (event) {
   let
-  selection = current();
+    selection = current()
 
   if (isHeadingNode(selection.anchorNode)) {
-    return;
+    return
   }
 
   if (isHeadingNode(selection.focusNode)) {
-    return;
+    return
   }
 
   // @todo enable/disable button
-  one().execCommand('italic');
+  one().execCommand('italic')
 }
 
 anticore.on('form.editor .options button.italic', function (element, next) {
-  onClick(element, onClickEvent);
+  onClick(element, onClickEvent)
 
-  next();
-});
+  next()
+})

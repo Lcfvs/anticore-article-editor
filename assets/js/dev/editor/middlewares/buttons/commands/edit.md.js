@@ -1,12 +1,12 @@
-import {anticore} from 'anticore';
-import {onClick} from 'anticore/dom/emitter/on/onClick';
+import { anticore } from 'anticore'
+import { onClick } from 'anticore/dom/emitter/on/onClick'
 
-function onClickEvent(event) {
+function onClickEvent (event) {
 
 }
 
 anticore.on('form article .options button.edit', function (element, next) {
-  onClick(element, onClickEvent);
+  onClick(element, onClickEvent)
 
-  next();
-});
+  next()
+})

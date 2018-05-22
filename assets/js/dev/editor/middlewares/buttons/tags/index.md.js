@@ -1,3 +1,3 @@
-import './a.md';
-import './figure.md';
-import './source.md';
+import './a.md'
+import './figure.md'
+import './source.md'

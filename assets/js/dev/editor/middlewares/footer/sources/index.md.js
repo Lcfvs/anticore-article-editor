@@ -1,19 +1,19 @@
-import './li.md';
-import {anticore} from 'anticore';
-import {one} from 'anticore/dom/query/one';
-import {append} from 'anticore/dom/tree/append';
-import {before} from 'anticore/dom/tree/before';
+import { anticore } from 'anticore'
+import { one } from 'anticore/dom/query/one'
+import { append } from 'anticore/dom/tree/append'
+import { before } from 'anticore/dom/tree/before'
+import './li.md'
 
-anticore.on('section.sources', function(element, next) {
+anticore.on('section.sources', function (element, next) {
   let
-  footer = one('form article footer'),
-  sources = one('section.sources', footer);
+    footer = one('form article footer'),
+    sources = one('section.sources', footer)
 
   if (sources) {
-    append(one('li', element), one('ol', sources));
+    append(one('li', element), one('ol', sources))
   } else {
-    before(element, one('section.tags', footer));
+    before(element, one('section.tags', footer))
   }
 
-  next();
-});
+  next()
+})

@@ -1,5 +1,5 @@
-import {nodeName} from 'anticore/dom/info/nodeName';
+import { nodeName } from 'anticore/dom/info/nodeName'
 
-export function hasSameNodeName(original, target) {
-  return nodeName(original) === nodeName(target);
+export function hasSameNodeName (original, target) {
+  return nodeName(original) === nodeName(target)
 }

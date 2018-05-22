@@ -1,8 +1,8 @@
-import {anticore} from 'anticore';
-import {listenImg} from '../../core/listenImg';
+import { anticore } from 'anticore'
+import { listenImg } from '../../core/listenImg'
 
 anticore.on('article header img', function (element, next) {
-  listenImg(element);
+  listenImg(element)
 
-  next();
-});
+  next()
+})
